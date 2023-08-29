@@ -6,7 +6,8 @@
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
-    "web": "expo start --web"
+    "web": "expo start --web",
+    "lint": "standard"
   },
   "dependencies": {
     "expo": "~49.0.8",
@@ -17,6 +18,9 @@
   "devDependencies": {
     "@babel/core": "^7.20.0",
     "standard": "^17.1.0"
+  },
+  "eslintConfig": {
+    "extends": "./node_modules/standard/eslintrc.json"
   },
   "private": true
 }
