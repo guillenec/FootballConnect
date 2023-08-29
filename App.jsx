@@ -5,6 +5,9 @@ const App = () => {
   const [textValue, setTextValue] = useState('')
   const [list, setLIst] = useState([])
 
+  const handleChangeItem = (value) => {
+    setTextValue(value)
+  }
   return (
     <View style={styles.container}>
     <View style={styles.containSectionButton}>
@@ -12,6 +15,7 @@ const App = () => {
         <TextInput 
         placeholder="Item de la lista"
         value={textValue} 
+        onChangeText={handleChangeItem}
         style={styles.inputText}>
         </TextInput>
         <View style={styles.underline} />
@@ -19,15 +23,14 @@ const App = () => {
       <Button title="Agregar" />
     </View>
     <View style={styles.listContainer}>
-      <View style={styles.sectionTextList}>
-        <Text>Lista</Text>
-      </View>
-      <View style={styles.sectionTextList}>
-        <Text>Lista</Text>
-      </View>
-      <View style={styles.sectionTextList}>
-        <Text style={{color:"#4d494a", fontWeight:"500" , fontSize:16}}>Lista</Text>
-      </View>
+      {
+        list?.map(item =>(
+        <View style={styles.sectionTextList}>
+          <Text>{item.value}</Text>
+        </View>
+        ))
+      }
+
     </View>
   </View>
     )
