@@ -1,6 +1,5 @@
 import { Button, StyleSheet, Text, TextInput, View, FlatList } from 'react-native'
 import React, { useState } from 'react'
-import { v4 as uuidv4 } from 'uuid'
 
 const App = () => {
   const [textValue, setTextValue] = useState('')
@@ -10,8 +9,16 @@ const App = () => {
     setTextValue(value)
   }
   const handleAddItem = () => {
-    setLIst(prevState => [...prevState, { id: uuidv4(), value: textValue }])
+    setLIst(prevState => [...prevState, { id: Math.random(), value: textValue }])
     setTextValue('')
+  }
+
+  const renderList = ({ item }) => {
+    return (
+      <View style={styles.sectionTextList}>
+        <Text style={styles.textList}>{item.value}</Text>
+      </View>
+    )
   }
   return (
     <View style={styles.container}>
@@ -30,11 +37,7 @@ const App = () => {
       <View style={styles.listContainer}>
         <FlatList
           data={list}
-          renderItem={({ item }) => (
-            <View style={styles.sectionTextList}>
-              <Text style={styles.textList}>{item.value}</Text>
-            </View>
-          )}
+          renderItem={renderList}
           keyExtractor={item => item.id}
         />
       </View>
@@ -104,8 +107,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderRadius: 10,
     borderWidth: 1,
-    borderColor: '#f7d8bf',
-    gap: 10
+    borderColor: '#f7d8bf'
   },
   textList: {
     color: '#333',
