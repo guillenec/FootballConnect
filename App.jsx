@@ -1,32 +1,40 @@
 import { Button, StyleSheet, Text, TextInput, View} from 'react-native';
+import React, { useState } from 'react'
 
-export default function App() {
+const App = () => {
+  const [textValue, setTextValue] = useState('')
+  const [list, setLIst] = useState([])
+
   return (
     <View style={styles.container}>
-      <View style={styles.containSectionButton}>
-        <View>
-          <TextInput 
-          placeholder="Item de la lista" 
-          style={styles.inputText}>
-          </TextInput>
-          <View style={styles.underline} />
-        </View>
-        <Button title="Agregar" />
+    <View style={styles.containSectionButton}>
+      <View>
+        <TextInput 
+        placeholder="Item de la lista"
+        value={textValue} 
+        style={styles.inputText}>
+        </TextInput>
+        <View style={styles.underline} />
       </View>
-      <View style={styles.listContainer}>
-        <View style={styles.sectionTextList}>
-          <Text>Lista</Text>
-        </View>
-        <View style={styles.sectionTextList}>
-          <Text>Lista</Text>
-        </View>
-        <View style={styles.sectionTextList}>
-          <Text style={{color:"#4d494a", fontWeight:"500" , fontSize:16}}>Lista</Text>
-        </View>
+      <Button title="Agregar" />
+    </View>
+    <View style={styles.listContainer}>
+      <View style={styles.sectionTextList}>
+        <Text>Lista</Text>
+      </View>
+      <View style={styles.sectionTextList}>
+        <Text>Lista</Text>
+      </View>
+      <View style={styles.sectionTextList}>
+        <Text style={{color:"#4d494a", fontWeight:"500" , fontSize:16}}>Lista</Text>
       </View>
     </View>
-  );
+  </View>
+    )
 }
+
+export default App
+
 
 const styles = StyleSheet.create({
   container: {
