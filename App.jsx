@@ -1,5 +1,6 @@
-import { Button, StyleSheet, Text, TextInput, View } from 'react-native'
+import { Button, StyleSheet, Text, TextInput, View, FlatList } from 'react-native'
 import React, { useState } from 'react'
+import { v4 as uuidv4 } from 'uuid'
 
 const App = () => {
   const [textValue, setTextValue] = useState('')
@@ -9,7 +10,7 @@ const App = () => {
     setTextValue(value)
   }
   const handleAddItem = () => {
-    setLIst(prevState => [...prevState, { value: textValue }])
+    setLIst(prevState => [...prevState, { id: uuidv4(), value: textValue }])
     setTextValue('')
   }
   return (
@@ -27,18 +28,29 @@ const App = () => {
         <Button title='Agregar' onPress={handleAddItem} />
       </View>
       <View style={styles.listContainer}>
-        {
+        <FlatList
+          data={list}
+          renderItem={({ item }) => (
+            <View style={styles.sectionTextList}>
+              <Text style={styles.textList}>{item.value}</Text>
+            </View>
+          )}
+          keyExtractor={item => item.id}
+        />
+      </View>
+    </View>
+  )
+}
+
+/*
+  {
         list?.map((item, index) => (
           <View key={index} style={styles.sectionTextList}>
             <Text style={styles.textList}>{item.value}</Text>
           </View>
         ))
       }
-
-      </View>
-    </View>
-  )
-}
+ */
 
 export default App
 
@@ -92,12 +104,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderRadius: 10,
     borderWidth: 1,
-    borderColor: '#f7d8bf'
-
+    borderColor: '#f7d8bf',
+    gap: 10
   },
   textList: {
     color: '#333',
     fontSize: 20,
-    fontWeight: 'normal'
+    fontWeight: 'normal',
+    padding: 10
   }
 })
