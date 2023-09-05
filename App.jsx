@@ -1,5 +1,6 @@
-import { Button, StyleSheet, Text, TextInput, View, FlatList, Modal } from 'react-native'
+import { Button, StyleSheet, Text, TextInput, View, FlatList, Modal, TouchableOpacity } from 'react-native'
 import React, { useState } from 'react'
+import Icon from 'react-native-vector-icons/FontAwesome' // Ejemplo de FontAwesome
 
 const App = () => {
   const [textValue, setTextValue] = useState('')
@@ -7,27 +8,37 @@ const App = () => {
   const [itemSelected, setItemSelected] = useState({})
   const [modalVisible, setModalVisible] = useState(false)
 
-  const handleDelete = () => {
-
+  const removeProduct = (index) => {
+    console.log(itemSelected)
+    const updateProduct = [...list]
+    updateProduct.splice(itemSelected, 1)
+    setLIst(updateProduct)
+    setModalVisible(false)
   }
 
-  const handleModal = () => {
-
+  const handleModal = (index) => {
+    setModalVisible(true)
+    setItemSelected(index)
   }
 
   const handleChangeItem = (value) => {
     setTextValue(value)
   }
+
   const handleAddItem = () => {
+    if (textValue === '') {
+      return
+    }
+    console.log('ejecuta la funcion de agregar elemento')
     setLIst(prevState => [...prevState, { id: Math.random(), value: textValue }])
     setTextValue('')
   }
 
-  const renderList = ({ item }) => {
+  const renderList = ({ item, index }) => {
     return (
-      <View style={styles.sectionTextList}>
+      <TouchableOpacity style={styles.sectionTextList} onPress={() => handleModal(index)}>
         <Text style={styles.textList}>{item.value}</Text>
-      </View>
+      </TouchableOpacity>
     )
   }
 
@@ -50,29 +61,37 @@ const App = () => {
           data={list}
           renderItem={renderList}
           keyExtractor={item => item.id}
-        />
+        >
+          <Icon name='trash' size={30} color='red' />
+        </FlatList>
       </View>
       <Modal
         visible={modalVisible}
-        animationType='fade'
+        animationType='slide'
+        transparent
       >
-        <View style={styles.modalTitle}>
-          <Text>
-            mi modal
-            {/* {itemSelected.value} */}
-          </Text>
+        <View style={styles.modalContainer}>
+          <View style={styles.modalCard}>
+            <View style={styles.modalTitle}>
+              <Text>
+                mi modal
+                {/* {itemSelected.value} */}
+              </Text>
+            </View>
+            <View style={styles.modalMessage}>
+              <Text>
+                estas seguro de eliminar?
+              </Text>
+            </View>
+            <View style={styles.modalButton}>
+              <Button title='eliminar product' onPress={removeProduct} />
+            </View>
+            <View style={styles.modalButton}>
+              <Button title='close Modal' onPress={() => setModalVisible(!modalVisible)} />
+            </View>
+          </View>
         </View>
-        <View style={styles.modalMessage}>
-          <Text>
-            estas seguro de eliminar?
-          </Text>
-        </View>
-        <View style={styles.modalButton}>
-          <Button title='Eliminar' onPress={handleDelete} />
-        </View>
-        <Button title='close Modal' onPress={() => setModalVisible(!itemSelected)} />
       </Modal>
-      <Button title='Open Modal' onPress={() => setModalVisible(true)} />
     </View>
   )
 }
@@ -130,7 +149,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 10,
-    gap: 10
+    gap: 10,
+    marginBottom: 50
   },
   sectionTextList: {
     backgroundColor: '#f1c274',
@@ -157,7 +177,19 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#f7d8bf',
     padding: 10
-
+  },
+  modalContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  modalCard: {
+    padding: 45,
+    borderRadius: 10,
+    backgroundColor: 'rgba( 51, 51, 51, 0.6 )',
+    boxShadow: '0 8px 32px 0 rgba( 31, 38, 135, 0.37 )',
+    backdropFilter: ' blur( 3px )',
+    border: '1px solid rgba( 255, 255, 255, 0.18 )'
   },
   modalTitle: {
     backgroundColor: '#f1c274',
