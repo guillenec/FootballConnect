@@ -1,6 +1,6 @@
-import { Button, StyleSheet, Text, TextInput, View, FlatList, Modal, TouchableOpacity } from 'react-native'
+import { StyleSheet, Text, TextInput, View, FlatList, TouchableOpacity, TouchableHighlight } from 'react-native'
 import React, { useState } from 'react'
-import Icon from 'react-native-vector-icons/FontAwesome' // Ejemplo de FontAwesome
+import ModalCustom from './components/modal/Modal'
 
 const App = () => {
   const [textValue, setTextValue] = useState('')
@@ -52,68 +52,34 @@ const App = () => {
             onChangeText={handleChangeItem}
             style={styles.inputText}
           />
-          <View style={styles.underline} />
         </View>
-        <Button title='Agregar' onPress={handleAddItem} />
+        <TouchableHighlight style={styles.buttonAdd} onPress={handleAddItem}>
+          <Text style={styles.buttonText}>Agregar</Text>
+        </TouchableHighlight>
       </View>
+
       <View style={styles.listContainer}>
         <FlatList
           data={list}
           renderItem={renderList}
           keyExtractor={item => item.id}
-        >
-          <Icon name='trash' size={30} color='red' />
-        </FlatList>
+        />
       </View>
-      <Modal
-        visible={modalVisible}
-        animationType='slide'
-        transparent
-      >
-        <View style={styles.modalContainer}>
-          <View style={styles.modalCard}>
-            <View style={styles.modalTitle}>
-              <Text>
-                mi modal
-                {/* {itemSelected.value} */}
-              </Text>
-            </View>
-            <View style={styles.modalMessage}>
-              <Text>
-                estas seguro de eliminar?
-              </Text>
-            </View>
-            <View style={styles.modalButton}>
-              <Button title='eliminar product' onPress={removeProduct} />
-            </View>
-            <View style={styles.modalButton}>
-              <Button title='close Modal' onPress={() => setModalVisible(!modalVisible)} />
-            </View>
-          </View>
-        </View>
-      </Modal>
+      <ModalCustom modalVisible={modalVisible} setModalVisible={setModalVisible} removeProduct={removeProduct} />
     </View>
   )
 }
-
-/*
-  {
-        list?.map((item, index) => (
-          <View key={index} style={styles.sectionTextList}>
-            <Text style={styles.textList}>{item.value}</Text>
-          </View>
-        ))
-      }
- */
 
 export default App
 
 const styles = StyleSheet.create({
   container: {
+    backgroundColor: '#F1FAEE',
+    flex: 1,
+    alignItems: 'center',
     paddingTop: 50,
     paddingLeft: 20,
     paddingRight: 20,
-    flex: 1,
     flexDirection: 'column',
     height: 'auto',
     gap: 20
@@ -121,26 +87,34 @@ const styles = StyleSheet.create({
   containSectionButton: {
     flexDirection: 'row',
     justifyContent: 'space-between',
+    paddingHorizontal: 5,
+    paddingVertical: 5,
     alignItems: 'center',
-    height: 'auto'
+    height: 'auto',
+    width: 300,
+    backgroundColor: '#FF6B6B',
+    borderRadius: 4
   },
-
+  buttonAdd: {
+    color: '#ffffff',
+    borderWidth: 2,
+    borderColor: '#6A8DBE',
+    borderRadius: 5,
+    padding: 8,
+    fontSize: '16px',
+    fontWeight: 'bold'
+  },
+  buttonText: {
+    color: 'white', // Cambia el color del texto del botón
+    fontSize: 16,
+    fontWeight: 'semibold'
+  },
   inputText: {
     width: 200,
     height: 40,
     maxHeight: 40,
     position: 'relative',
-    backgroundColor: 'white'
-  },
-  underline: {
-    content: '',
-    position: 'absolute',
-    bottom: 0,
-    left: 0,
-    width: '100%',
-    height: 5, // Ajusta el grosor del subrayado
-    backgroundColor: 'gray', // Color del subrayado
-    borderRadius: 10 // Ajusta este valor para redondear más o menos
+    color: '#ffffff'
   },
 
   listContainer: {
@@ -168,41 +142,6 @@ const styles = StyleSheet.create({
     marginVertical: 1,
     marginHorizontal: 30,
     padding: 10
-  },
-  modalVisible: {
-    width: 200,
-    height: 200,
-    borderRadius: 50,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#f7d8bf',
-    padding: 10
-  },
-  modalContainer: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
-  modalCard: {
-    padding: 45,
-    borderRadius: 10,
-    backgroundColor: 'rgba( 51, 51, 51, 0.6 )',
-    boxShadow: '0 8px 32px 0 rgba( 31, 38, 135, 0.37 )',
-    backdropFilter: ' blur( 3px )',
-    border: '1px solid rgba( 255, 255, 255, 0.18 )'
-  },
-  modalTitle: {
-    backgroundColor: '#f1c274',
-    color: '#333',
-    fontSize: 20
-  },
-  modalMessage: {
-    marginBottom: 15,
-    justifyContent: 'center',
-    alignItems: 'center'
-
-  },
-  modalButton: {
-    marginTop: 15
   }
+
 })
