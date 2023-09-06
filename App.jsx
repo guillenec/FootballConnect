@@ -48,6 +48,7 @@ const App = () => {
         <View>
           <TextInput
             placeholder='Item de la lista'
+            placeholderTextColor='#F5F5DC'
             value={textValue}
             onChangeText={handleChangeItem}
             style={styles.inputText}
@@ -74,7 +75,7 @@ export default App
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#F1FAEE',
+    backgroundColor: '#78B382',
     flex: 1,
     alignItems: 'center',
     paddingTop: 50,
@@ -92,13 +93,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     height: 'auto',
     width: 300,
-    backgroundColor: '#FF6B6B',
+    backgroundColor: '#FF7F50',
+    color: 'white',
     borderRadius: 4
   },
   buttonAdd: {
     color: '#ffffff',
     borderWidth: 2,
-    borderColor: '#6A8DBE',
+    borderColor: '#2E86C1',
     borderRadius: 5,
     padding: 8,
     fontSize: '16px',
