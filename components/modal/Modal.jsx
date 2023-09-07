@@ -1,6 +1,5 @@
 import React from 'react'
 import { View, Modal, Text, Button, StyleSheet } from 'react-native'
-import Ionicons from '@expo/vector-icons/Ionicons'
 
 const ModalCustom = ({ modalVisible, setModalVisible, removeProduct }) => {
   return (

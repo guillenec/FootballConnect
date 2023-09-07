@@ -1,6 +1,7 @@
 import { StyleSheet, Text, TextInput, View, FlatList, TouchableOpacity, TouchableHighlight } from 'react-native'
 import React, { useState } from 'react'
 import ModalCustom from './components/modal/Modal'
+import Ionicons from '@expo/vector-icons/Ionicons'
 
 const App = () => {
   const [textValue, setTextValue] = useState('')
@@ -36,9 +37,11 @@ const App = () => {
 
   const renderList = ({ item, index }) => {
     return (
-      <TouchableOpacity style={styles.sectionTextList} onPress={() => handleModal(index)}>
-        <Text style={styles.textList}>{item.value}</Text>
-      </TouchableOpacity>
+      <View style={styles.sectionTextList}>
+        <Text style={styles.textList}>{item.value}
+        </Text>
+        <Ionicons style={styles.iconTrash} name='ios-trash' onPress={() => handleModal(index)} />
+      </View>
     )
   }
 
@@ -103,7 +106,7 @@ const styles = StyleSheet.create({
     borderColor: '#2E86C1',
     borderRadius: 5,
     padding: 8,
-    fontSize: '16px',
+    fontSize: 16,
     fontWeight: 'bold'
   },
   buttonText: {
@@ -122,28 +125,33 @@ const styles = StyleSheet.create({
   listContainer: {
     width: '100%',
     flex: 1,
+    flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-    borderRadius: 10,
-    gap: 10,
-    marginBottom: 50
+    gap: 10
   },
   sectionTextList: {
-    backgroundColor: '#f1c274',
-    justifyContent: 'center',
+    width: 180,
+    backgroundColor: '#4AA8D6',
+    borderColor: '#FFA07A',
+    color: '#ffffff',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
     alignItems: 'center',
     borderRadius: 10,
     borderWidth: 2,
-    borderColor: '#f7d8bf',
-    marginTop: 10
+    marginTop: 10,
+    padding: 8
+
   },
   textList: {
-    color: '#333',
-    fontSize: 20,
-    fontWeight: 'normal',
-    marginVertical: 1,
-    marginHorizontal: 30,
-    padding: 10
+    color: '#ffffff',
+    fontSize: 16,
+    fontWeight: 'normal'
+  },
+  iconTrash: {
+    color: '#FF7F50',
+    fontSize: 24
   }
 
 })
