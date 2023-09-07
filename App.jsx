@@ -1,4 +1,4 @@
-import { StyleSheet, Text, TextInput, View, FlatList, TouchableOpacity, TouchableHighlight } from 'react-native'
+import { StyleSheet, Text, TextInput, View, FlatList, TouchableHighlight } from 'react-native'
 import React, { useState } from 'react'
 import ModalCustom from './components/modal/Modal'
 import Ionicons from '@expo/vector-icons/Ionicons'

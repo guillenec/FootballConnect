@@ -11,7 +11,7 @@ const ModalCustom = ({ modalVisible, setModalVisible, removeProduct }) => {
       <View style={styles.modalContainer}>
         <View style={styles.modalCard}>
           <View style={styles.modalMessage}>
-            <Text>
+            <Text style={styles.modalTitle}>
               Estas seguro de eliminar?
             </Text>
           </View>
@@ -42,19 +42,19 @@ const styles = StyleSheet.create({
   modalContainer: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    backgroundColor: 'rgba(34, 139, 34, 0.863)'
   },
   modalCard: {
     padding: 45,
     borderRadius: 10,
-    backgroundColor: 'rgba( 51, 51, 51, 0.6 )',
+    backgroundColor: '#FF7F50',
     boxShadow: '0 8px 32px 0 rgba( 31, 38, 135, 0.37 )',
     backdropFilter: ' blur( 3px )',
     border: '1px solid rgba( 255, 255, 255, 0.18 )'
   },
   modalTitle: {
-    backgroundColor: '#f1c274',
-    color: '#333',
+    color: '#FFFFFF',
     fontSize: 20
   },
   modalMessage: {
