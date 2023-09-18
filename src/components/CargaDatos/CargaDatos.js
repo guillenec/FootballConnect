@@ -51,7 +51,7 @@ const CargaDatos = () => {
       <View style={styles.containSectionButton}>
         <View>
           <TextInput
-            placeholder='Item de la lista'
+            placeholder='Añade equipos a la lista'
             placeholderTextColor='#F5F5DC'
             value={textValue}
             onChangeText={handleChangeItem}
