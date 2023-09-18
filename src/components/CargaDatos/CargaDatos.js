@@ -1,6 +1,6 @@
 import { StyleSheet, Text, TextInput, View, FlatList, TouchableHighlight } from 'react-native'
 import React, { useState } from 'react'
-import ModalCustom from './components/modal/Modal'
+import ModalCustom from './Modal/Modal'
 import Ionicons from '@expo/vector-icons/Ionicons'
 
 const CargaDatos = () => {
@@ -82,6 +82,8 @@ export default CargaDatos
 
 const styles = StyleSheet.create({
   container: {
+    width: '100%',
+    height: 'auto',
     backgroundColor: '#78B382',
     flex: 1,
     alignItems: 'center',
@@ -89,7 +91,6 @@ const styles = StyleSheet.create({
     paddingLeft: 20,
     paddingRight: 20,
     flexDirection: 'column',
-    height: 'auto',
     gap: 20
   },
   containSectionButton: {
