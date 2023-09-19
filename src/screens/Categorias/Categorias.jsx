@@ -14,7 +14,7 @@ export default Categorias
 const styles = StyleSheet.create({
   containCategorias: {
     flex: 1,
-    backgroundColor: '#ff9dad',
+    // backgroundColor: '#ff9dad',
     justifyContent: 'center',
     alignItems: 'center'
   }
