@@ -9,9 +9,9 @@ export const categorias = [
 ]
 
 export const equiposBarrio = [
-  { _id: 1, nombre: 'Los Glaciares', ciudad: 'El Calafate, Santa Cruz', imagen: 'https://c8.alamy.com/compes/m15hdn/buenos-aires-argentina-caminito-barrio-de-la-boca-parque-de-barrio-futbol-futbol-futbol-futbol-futbol-futbol-futbol-futbol-deporte-nino-ninos-chico-ninos-ninos-y-ninos-m15hdn.jpg', categoria_id: 1 },
-  { _id: 2, nombre: 'Los Nevados', ciudad: 'San Carlos de Bariloche, Río Negro', imagen: 'https://media.istockphoto.com/id/1327485609/es/foto/un-peque%C3%B1o-mercado-de-uniformes-del-equipo-de-f%C3%BAtbol-de-n%C3%A1poles-en-el-distrito-de-quartieri.jpg?s=612x612&w=0&k=20&c=oHlGGQOTDAZiv3hXCrZQFf9SnzOuYLpc_6_NGEfdaJU=', categoria_id: 1 },
-  { _id: 3, nombre: 'Los Fueguinos', ciudad: 'Ushuaia, Tierra del Fuego', imagen: 'https://media.istockphoto.com/id/503256473/es/foto/young-men-playing-soccer-in-the-city.jpg?s=612x612&w=0&k=20&c=cwa3MD9ERqv9-kfU1pjdMw1BpBpFF7Kd6p3QM6xus5E=', categoria_id: 1 },
+  { _id: 1, nombre: 'Los Glaciares', ciudad: 'El Calafate, Santa Cruz', imagen: 'https://c8.alamy.com/compes/m15hdn/buenos-aires-argentina-caminito-barrio-de-la-boca-parque-de-barrio-futbol-futbol-futbol-futbol-futbol-futbol-futbol-futbol-deporte-nino-ninos-chico-ninos-ninos-y-ninos-m15hdn.jpg', categoria_id: 1, category: 'Patagonia' },
+  { _id: 2, nombre: 'Los Nevados', ciudad: 'San Carlos de Bariloche, Río Negro', imagen: 'https://media.istockphoto.com/id/1327485609/es/foto/un-peque%C3%B1o-mercado-de-uniformes-del-equipo-de-f%C3%BAtbol-de-n%C3%A1poles-en-el-distrito-de-quartieri.jpg?s=612x612&w=0&k=20&c=oHlGGQOTDAZiv3hXCrZQFf9SnzOuYLpc_6_NGEfdaJU=', categoria_id: 1, category: '' },
+  { _id: 3, nombre: 'Los Fueguinos', ciudad: 'Ushuaia, Tierra del Fuego', imagen: 'https://media.istockphoto.com/id/503256473/es/foto/young-men-playing-soccer-in-the-city.jpg?s=612x612&w=0&k=20&c=cwa3MD9ERqv9-kfU1pjdMw1BpBpFF7Kd6p3QM6xus5E=', categoria_id: 1, category: '' },
   { _id: 4, nombre: 'Los Andinos', ciudad: 'San Martín de los Andes, Neuquén', imagen: 'https://www.altoperu.org//wp-content/uploads/2020/12/1_PH0J03wqBP6t7F5whdmHFg.jpg', categoria_id: 1 },
   { _id: 5, nombre: 'Los Ventiscas', ciudad: 'Comodoro Rivadavia, Chubut', imagen: 'https://futboldeloeste.com.ar/wp-content/uploads/2017/09/CABN.jpg', categoria_id: 1 },
   { _id: 6, nombre: 'Los Cumbres', ciudad: 'Bariloche, Río Negro', imagen: 'https://img.soy-chile.cl/Fotos/2021/11/26/file_20211126115018.jpg', categoria_id: 1 },

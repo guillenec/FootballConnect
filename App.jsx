@@ -1,6 +1,6 @@
 import { StyleSheet, View } from 'react-native'
 import React from 'react'
-import Home from './src/screens/Home/Home'
+import { Home } from './src/screens/index'
 
 const App = () => {
   return (

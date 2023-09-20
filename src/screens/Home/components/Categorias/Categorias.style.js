@@ -1,8 +1,8 @@
 import { StyleSheet } from 'react-native'
-import { colors } from '../../utils/colors'
+import { colors } from '../../../../utils/colors'
 
 const styles = StyleSheet.create({
-  containerHome: {
+  containerCategorias: {
     flex: 1,
     width: '100%',
     justifyContent: 'center',
