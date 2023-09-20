@@ -1,7 +1,9 @@
-import { FlatList, StyleSheet, View } from 'react-native'
+import { FlatList, View } from 'react-native'
 import React from 'react'
 import { categorias } from '../../data/categoryDb'
 import CategoryItem from './CategoryItem/CategoryItem'
+import styles from './Categorias.style'
+
 const Categorias = () => {
   console.log(categorias)
   return (
@@ -18,13 +20,3 @@ const Categorias = () => {
 }
 
 export default Categorias
-
-const styles = StyleSheet.create({
-  containerCategorias: {
-    flex: 1,
-    width: '100%',
-    justifyContent: 'center',
-    alignItems: 'center'
-    // backgroundColor: '#83f083'
-  }
-})
