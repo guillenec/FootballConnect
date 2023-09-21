@@ -11,6 +11,8 @@ const Products = ({ category }) => {
   const [keyword, setKeyword] = useState('')
   const [loader, setLoader] = useState(false)
 
+  console.log('CATEGORIA -> ', category)
+
   const fetchProducts = () => {
     return new Promise((resolve, reject) => {
       setTimeout(() => {

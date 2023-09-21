@@ -7,11 +7,11 @@ import { Categorias } from './components'
 import styles from './Home-style'
 import { View } from 'react-native'
 
-const Home = () => {
+const Home = ({ setCategorySelected }) => {
   return (
     <View style={styles.containerHome}>
       <Header title='futbol conect' />
-      <Categorias />
+      <Categorias setCategorySelected={setCategorySelected} />
     </View>
 
   )
