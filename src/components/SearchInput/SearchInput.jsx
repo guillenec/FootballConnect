@@ -1,6 +1,6 @@
 import { Pressable, TextInput, View } from 'react-native'
 import React, { useState } from 'react'
-import { styles } from './SearchInput.style'
+import styles from './SearchInput.style'
 import Ionicons from '@expo/vector-icons/Ionicons'
 
 const SearchInput = ({ onSearch }) => {

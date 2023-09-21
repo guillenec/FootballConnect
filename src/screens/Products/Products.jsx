@@ -1,10 +1,12 @@
 import { FlatList, Text, View } from 'react-native'
 import React, { useEffect, useState } from 'react'
-import { styles } from './Products.style'
+import styles from './Products.style'
 import { equiposBarrio } from '../../data/categoryDb'
-import { Header, SearchInput } from '../../components'
+import Header from '../../components/Header/Header'
+import SearchInput from '../../components/SearchInput/SearchInput'
 
 const Products = ({ category }) => {
+  const [allProducts, setAllProducts] = useState([])
   const [arrProduct, setArrProduct] = useState([])
   const [keyword, setKeyword] = useState('')
 
@@ -12,24 +14,26 @@ const Products = ({ category }) => {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         resolve(equiposBarrio)
-      }, 1000)
+      }, 3000)
     })
   }
 
   async function getProducts () {
     try {
       const data = await fetchProducts()
-      setArrProduct(data)
+      setAllProducts(data)
     } catch (error) {
       console.log('error al traer los equipos', error)
     }
   }
 
   useEffect(() => {
-    const allProducts = getProducts()
+    getProducts()
+
+    console.log(allProducts)
 
     if (category) {
-      const filterCategory = allProducts.filter(item => item.categoria_id === category)
+      const filterCategory = allProducts.filter(item => item.category === category)
       const filterKeyword = filterCategory.filter(item => item.nombre.toLowerCase().includes(keyword.toLowerCase()))
       setArrProduct(filterKeyword)
     } else {
@@ -39,7 +43,7 @@ const Products = ({ category }) => {
   }, [category, keyword])
 
   return (
-    <View style={styles.container}>
+    <View style={styles.containerProducts}>
       <Header title='Productos' />
       <SearchInput onSearch={setKeyword} />
       <View style={styles.listContainer}>
