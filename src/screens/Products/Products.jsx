@@ -9,6 +9,7 @@ const Products = ({ category }) => {
   const [allProducts, setAllProducts] = useState([])
   const [arrProduct, setArrProduct] = useState([])
   const [keyword, setKeyword] = useState('')
+  const [loader, setLoader] = useState(false)
 
   const fetchProducts = () => {
     return new Promise((resolve, reject) => {
@@ -20,10 +21,13 @@ const Products = ({ category }) => {
 
   async function getProducts () {
     try {
+      setLoader(true)
       const data = await fetchProducts()
       setAllProducts(data)
     } catch (error) {
       console.log('error al traer los equipos', error)
+    } finally {
+      setLoader(false)
     }
   }
 
@@ -46,17 +50,32 @@ const Products = ({ category }) => {
     <View style={styles.containerProducts}>
       <Header title='Productos' />
       <SearchInput onSearch={setKeyword} />
-      <View style={styles.listContainer}>
-        <FlatList
-          data={arrProduct}
-          keyExtractor={product => product._id}
-          renderItem={({ item }) => (
-            <View>
-              <Text>{item.nombre}</Text>
+      {
+      loader
+        ? (
+          <Text style={{ color: 'green', fontSize: 19, paddingVertical: 10, paddingHorizontal: 15 }}>Cargando...
+          </Text>
+          )
+        : arrProduct.length > 0
+          ? (
+            <View style={styles.listContainer}>
+              <FlatList
+                data={arrProduct}
+                keyExtractor={product => product._id}
+                renderItem={({ item }) => (
+                  <View>
+                    <Text>{item.nombre}</Text>
+                  </View>
+                )}
+              />
             </View>
-          )}
-        />
-      </View>
+            )
+          : (
+            <Text style={{ color: 'red', fontSize: 19, paddingVertical: 10, paddingHorizontal: 15 }}>No se encontraron coincidencias...
+            </Text>
+            )
+      }
+
     </View>
   )
 }
