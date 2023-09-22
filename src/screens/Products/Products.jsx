@@ -17,7 +17,7 @@ const Products = ({ category }) => {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         resolve(equiposBarrio)
-      }, 3000)
+      }, 1000)
     })
   }
 
@@ -29,22 +29,26 @@ const Products = ({ category }) => {
     } catch (error) {
       console.log('error al traer los equipos', error)
     } finally {
-      setLoader(false)
+      setTimeout(() => {
+        setLoader(false)
+      }, 1000)
     }
   }
 
   useEffect(() => {
     getProducts()
 
-    console.log(allProducts)
+    console.log('todos ->', allProducts)
+    if (category && keyword === '') {
+      const filterCategory = allProducts?.filter(item => item.categoria_id === category)
+      console.log('filterCategory -->', filterCategory)
 
-    if (category) {
-      const filterCategory = allProducts.filter(item => item.category === category)
-      const filterKeyword = filterCategory.filter(item => item.nombre.toLowerCase().includes(keyword.toLowerCase()))
+      setArrProduct(filterCategory)
+    } else if (keyword !== '') {
+      const filterKeyword = allProducts?.filter(item => item.nombre.toLowerCase().includes(keyword.toLowerCase()))
+      console.log('filterCategory -->', filterKeyword)
+
       setArrProduct(filterKeyword)
-    } else {
-      const productFilter = allProducts.filter(item => item.nombre.toLowerCase().includes(keyword.toLowerCase()))
-      setArrProduct(productFilter)
     }
   }, [category, keyword])
 
@@ -53,12 +57,12 @@ const Products = ({ category }) => {
       <Header title='Productos' />
       <SearchInput onSearch={setKeyword} />
       {
-      loader
+      loader && allProducts.length > 0
         ? (
           <Text style={{ color: 'green', fontSize: 19, paddingVertical: 10, paddingHorizontal: 15 }}>Cargando...
           </Text>
           )
-        : arrProduct.length > 0
+        : arrProduct?.length > 0
           ? (
             <View style={styles.listContainer}>
               <FlatList

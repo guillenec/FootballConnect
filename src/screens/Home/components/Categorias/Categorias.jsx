@@ -1,10 +1,11 @@
 import { FlatList } from 'react-native'
 import React from 'react'
 import { categorias } from '../../../../data/categoryDb'
-import { CategoryItem } from '../index'
+import CategoryItem from '../CategoryItem/CategoryItem'
 
 const Categorias = ({ setCategorySelected }) => {
-  console.log(categorias)
+  console.log('Categorieas ->', categorias)
+
   return (
     <FlatList
       data={categorias}

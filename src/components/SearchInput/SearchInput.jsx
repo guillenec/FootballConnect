@@ -10,7 +10,7 @@ const SearchInput = ({ onSearch }) => {
     onSearch(value)
   }
 
-  const cleasrInput = () => {
+  const clearInput = () => {
     setValue('')
     onSearch('')
   }
@@ -35,7 +35,7 @@ const SearchInput = ({ onSearch }) => {
       {/* boton clear  */}
       <Pressable
         style={styles.buttonClear}
-        onPress={cleasrInput}
+        onPress={clearInput}
         disabled={!value}
       >
         <Ionicons name='close' size={24} color='#FF6B6B' />
