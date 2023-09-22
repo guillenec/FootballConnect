@@ -4,6 +4,7 @@ import styles from './Products.style'
 import { equiposBarrio } from '../../data/categoryDb'
 import Header from '../../components/Header/Header'
 import SearchInput from '../../components/SearchInput/SearchInput'
+import ProductItem from './components/ProductItem/ProductItem'
 
 const Products = ({ category }) => {
   const [allProducts, setAllProducts] = useState([])
@@ -52,6 +53,10 @@ const Products = ({ category }) => {
     }
   }, [category, keyword])
 
+  const setProductDetailId = (id) => {
+    console.log('id ->', id)
+  }
+
   return (
     <View style={styles.containerProducts}>
       <Header title='Productos' />
@@ -66,12 +71,14 @@ const Products = ({ category }) => {
           ? (
             <View style={styles.listContainer}>
               <FlatList
+                style={styles.list}
                 data={arrProduct}
                 keyExtractor={product => product._id}
                 renderItem={({ item }) => (
-                  <View>
-                    <Text>{item.nombre}</Text>
-                  </View>
+                  <ProductItem item={item} setProductDetailId={setProductDetailId} />
+                  // <View>
+                  //   <Text>{item.nombre}</Text>
+                  // </View>
                 )}
               />
             </View>
