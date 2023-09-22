@@ -74,6 +74,7 @@ const Products = ({ category }) => {
                 style={styles.list}
                 data={arrProduct}
                 keyExtractor={product => product._id}
+                horizontal
                 renderItem={({ item }) => (
                   <ProductItem item={item} setProductDetailId={setProductDetailId} />
                   // <View>
