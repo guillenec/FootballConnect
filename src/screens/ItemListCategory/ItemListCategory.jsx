@@ -1,12 +1,12 @@
 import { FlatList, Text, View } from 'react-native'
 import React, { useEffect, useState } from 'react'
-import styles from './Products.style'
+import styles from './ItemListCategory.style'
 import { equiposBarrio } from '../../data/categoryDb'
 import Header from '../../components/Header/Header'
 import SearchInput from '../../components/SearchInput/SearchInput'
 import ProductItem from './components/ProductItem/ProductItem'
 
-const Products = ({ category }) => {
+const ItemListCategory = ({ category }) => {
   const [allProducts, setAllProducts] = useState([])
   const [arrProduct, setArrProduct] = useState([])
   const [keyword, setKeyword] = useState('')
@@ -94,4 +94,4 @@ const Products = ({ category }) => {
   )
 }
 
-export default Products
+export default ItemListCategory

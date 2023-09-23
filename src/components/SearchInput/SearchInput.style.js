@@ -2,10 +2,17 @@ import { StyleSheet } from 'react-native'
 import { colors } from '../../utils/colors'
 const styles = StyleSheet.create({
   container: {
+    width: '100%',
+    flexDirection: 'column',
+    gap: 10
+  },
+  containerSearch: {
+    width: '90%',
+    backgroundColor: colors.color5,
+    marginTop: 10,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    width: '90%',
     padding: 10
   },
   inputText: {
@@ -17,6 +24,12 @@ const styles = StyleSheet.create({
     borderColor: colors.color1,
     width: '80%',
     fontSize: 18
+  },
+  error: {
+    paddingLeft: 15,
+    color: 'red',
+    fontSize: 14,
+    textAlign: 'left'
   },
   buttonSearch: {},
   buttonClear: {}

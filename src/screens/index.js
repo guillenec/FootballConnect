@@ -1,4 +1,5 @@
 import Home from './Home/Home'
-import Products from './Products/Products'
+import ItemListCategory from './ItemListCategory/ItemListCategory'
+import ItemDetail from './ItemDetail/ItemDetail'
 
-export { Home, Products }
+export { Home, ItemListCategory, ItemDetail }

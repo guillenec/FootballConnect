@@ -3,24 +3,24 @@ import { colors } from '../../utils/colors'
 
 const styles = StyleSheet.create({
   containerProducts: {
-    flex: 1,
     width: '100%',
-    backgroundColor: colors.color6
+    backgroundColor: colors.color4,
+    overflow: 'hidden'
   },
   listContainer: {
     width: '100%',
-    backgroundColor: colors.color1,
+    height: '100%',
+    // backgroundColor: colors.color1,
     paddingHorizontal: 10,
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginTop: 15
+    marginTop: 15,
+    overflow: 'scroll'
+
   },
   list: {
     width: '100%',
-    marginTop: 15,
-    backgroundColor: colors.color2
-
+    height: 'auto',
+    marginTop: 15
+    // backgroundColor: colors.color2
   }
 })
 
