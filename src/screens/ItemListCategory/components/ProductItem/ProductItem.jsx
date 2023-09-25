@@ -1,10 +1,10 @@
 import { Image, Pressable, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 
-const ProductItem = ({ item, setProductDetailId }) => {
+const ProductItem = ({ item, setProductDetail }) => {
   return (
     <Pressable
-      style={styles.card} onPress={() => setProductDetailId(item._id)}
+      style={styles.card} onPress={() => setProductDetail(item._id)}
     >
       <Image
         resizeMode='cover'

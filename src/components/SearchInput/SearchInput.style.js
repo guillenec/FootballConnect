@@ -2,13 +2,12 @@ import { StyleSheet } from 'react-native'
 import { colors } from '../../utils/colors'
 const styles = StyleSheet.create({
   container: {
-    width: '100%',
+    width: 'auto',
     flexDirection: 'column',
     gap: 10
   },
   containerSearch: {
     width: '90%',
-    backgroundColor: colors.color5,
     marginTop: 10,
     flexDirection: 'row',
     justifyContent: 'space-between',

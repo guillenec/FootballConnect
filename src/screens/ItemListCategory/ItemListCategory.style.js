@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'column',
     justifyContent: 'flex-start',
-    alignItems: 'flex-start',
+    alignItems: 'center',
     alignContent: 'center',
     overflow: 'hidden'
   },
@@ -26,7 +26,22 @@ const styles = StyleSheet.create({
     height: 'auto',
     marginTop: 15
     // backgroundColor: colors.color2
+  },
+  botonBack: {
+    position: 'absolute',
+    bottom: 0,
+    left: 5,
+    width: 50,
+    height: 50,
+    borderRadius: 5,
+    backgroundColor: '#FF6B6B',
+    marginVertical: 10,
+    flez: 1,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center'
   }
+
 })
 
 export default styles

@@ -5,8 +5,9 @@ import { equiposBarrio } from '../../data/categoryDb'
 import Header from '../../components/Header/Header'
 import SearchInput from '../../components/SearchInput/SearchInput'
 import ProductItem from './components/ProductItem/ProductItem'
+import Ionicons from '@expo/vector-icons/Ionicons'
 
-const ItemListCategory = ({ category, setCategorySelected }) => {
+const ItemListCategory = ({ category, setCategorySelected, setProductDetail }) => {
   const [allProducts, setAllProducts] = useState([])
   const [arrProduct, setArrProduct] = useState([])
   const [keyword, setKeyword] = useState('')
@@ -53,9 +54,9 @@ const ItemListCategory = ({ category, setCategorySelected }) => {
     }
   }, [category, keyword])
 
-  const setProductDetailId = (id) => {
-    console.log('id ->', id)
-  }
+  // const setProductDetailId = (id) => {
+  //   console.log('id ->', id)
+  // }
 
   return (
     <View style={styles.containerProducts}>
@@ -77,7 +78,7 @@ const ItemListCategory = ({ category, setCategorySelected }) => {
                 keyExtractor={product => product._id}
                 horizontal
                 renderItem={({ item }) => (
-                  <ProductItem item={item} setProductDetailId={setProductDetailId} />
+                  <ProductItem item={item} setProductDetail={setProductDetail} />
                   // <View>
                   //   <Text>{item.nombre}</Text>
                   // </View>
@@ -90,8 +91,10 @@ const ItemListCategory = ({ category, setCategorySelected }) => {
             </Text>
             )
       }
-      <Pressable style={{ marginTop: 15, width: 200, height: 50, borderRadius: 5, backgroundColor: '#FF6B6B', padding: 10, marginVertical: 10 }} onPress={() => setCategorySelected('all')}>
-        <Text style={{ color: '#333', fontSize: 20, fontWeight: 'bold', textAlign: 'center' }}>Volver a Home</Text>
+      <Pressable
+        style={styles.botonBack} onPress={() => setCategorySelected('all')}
+      >
+        <Ionicons name='arrow-back' size={25} color='white' />
       </Pressable>
     </View>
   )

@@ -1,14 +1,23 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-
-const ItemDetail = () => {
+import { colors } from '../../utils/colors'
+import Header from '../../components/Header/Header'
+const ItemDetail = ({ product }) => {
+  console.log(product)
   return (
     <View style={styles.containItemDetail}>
-      <Text>ItemDetail</Text>
+      <Header title='Detalle ' />
+      <Text>ItemDetail #{product}</Text>
     </View>
   )
 }
 
 export default ItemDetail
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  containItemDetail: {
+    width: '100%',
+    height: '100%',
+    backgroundColor: colors.color3
+  }
+})
