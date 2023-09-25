@@ -15,7 +15,7 @@ const App = () => {
   return (
     productDetail
       ? <ItemDetail product={productDetail} setProductDetail={setProductDetail} />
-      : categorySelected
+      : categorySelected && categorySelected !== 'all'
         ? <ItemListCategory category={categorySelected} setCategorySelected={setCategorySelected} setProductDetail={setProductDetail} />
         : <Home setCategorySelected={setCategorySelected} />
   )

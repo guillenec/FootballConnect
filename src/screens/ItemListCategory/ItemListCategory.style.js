@@ -5,6 +5,11 @@ const styles = StyleSheet.create({
   containerProducts: {
     width: '100%',
     backgroundColor: colors.color4,
+    flex: 1,
+    flexDirection: 'column',
+    justifyContent: 'flex-start',
+    alignItems: 'flex-start',
+    alignContent: 'center',
     overflow: 'hidden'
   },
   listContainer: {

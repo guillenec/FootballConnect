@@ -1,4 +1,4 @@
-import { FlatList, Text, View } from 'react-native'
+import { FlatList, Pressable, Text, View } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import styles from './ItemListCategory.style'
 import { equiposBarrio } from '../../data/categoryDb'
@@ -6,7 +6,7 @@ import Header from '../../components/Header/Header'
 import SearchInput from '../../components/SearchInput/SearchInput'
 import ProductItem from './components/ProductItem/ProductItem'
 
-const ItemListCategory = ({ category }) => {
+const ItemListCategory = ({ category, setCategorySelected }) => {
   const [allProducts, setAllProducts] = useState([])
   const [arrProduct, setArrProduct] = useState([])
   const [keyword, setKeyword] = useState('')
@@ -60,6 +60,7 @@ const ItemListCategory = ({ category }) => {
   return (
     <View style={styles.containerProducts}>
       <Header title='Productos' />
+
       <SearchInput onSearch={setKeyword} />
       {
       loader && allProducts.length > 0
@@ -89,7 +90,9 @@ const ItemListCategory = ({ category }) => {
             </Text>
             )
       }
-
+      <Pressable style={{ marginTop: 15, width: 200, height: 50, borderRadius: 5, backgroundColor: '#FF6B6B', padding: 10, marginVertical: 10 }} onPress={() => setCategorySelected('all')}>
+        <Text style={{ color: '#333', fontSize: 20, fontWeight: 'bold', textAlign: 'center' }}>Volver a Home</Text>
+      </Pressable>
     </View>
   )
 }
