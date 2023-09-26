@@ -41,7 +41,9 @@ const styles = StyleSheet.create({
   containItemDetail: {
     width: '100%',
     height: '100%',
-    flex: 1,
+    // flex: 1,
+    display: 'flex',
+    flexDirection: 'column',
     justifyContent: 'flex-start',
     alignItems: 'center',
     alignContent: 'center'
@@ -116,7 +118,8 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     backgroundColor: '#FF6B6B',
     marginVertical: 10,
-    flex: 1,
+    // flex: 1,
+    display: 'flex',
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center'

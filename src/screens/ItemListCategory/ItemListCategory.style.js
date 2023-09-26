@@ -4,8 +4,9 @@ import { colors } from '../../utils/colors'
 const styles = StyleSheet.create({
   containerProducts: {
     width: '100%',
+    height: '100%',
     backgroundColor: colors.color4,
-    flex: 1,
+    // flex: 1,
     flexDirection: 'column',
     justifyContent: 'flex-start',
     alignItems: 'center',
@@ -36,7 +37,7 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     backgroundColor: '#FF6B6B',
     marginVertical: 10,
-    flez: 1,
+    // flez: 1,
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center'

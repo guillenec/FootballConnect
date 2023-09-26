@@ -36,6 +36,9 @@ const ItemListCategory = ({ category, setCategorySelected, setProductDetail }) =
       }, 1000)
     }
   }
+  // useEffect(() => {
+  //   getProducts()
+  // }, [allProducts])
 
   useEffect(() => {
     getProducts()
@@ -52,7 +55,7 @@ const ItemListCategory = ({ category, setCategorySelected, setProductDetail }) =
 
       setArrProduct(filterKeyword)
     }
-  }, [category, keyword])
+  }, [allProducts, category, keyword])
 
   // const setProductDetailId = (id) => {
   //   console.log('id ->', id)
