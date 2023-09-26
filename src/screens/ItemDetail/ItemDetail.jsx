@@ -1,4 +1,4 @@
-import { Pressable, StyleSheet, Text, View } from 'react-native'
+import { Image, Pressable, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import { colors } from '../../utils/colors'
 import Header from '../../components/Header/Header'
@@ -6,10 +6,26 @@ import Ionicons from '@expo/vector-icons/Ionicons'
 
 const ItemDetail = ({ product, setCategorySelected }) => {
   console.log(product)
+
   return (
     <View style={styles.containItemDetail}>
-      <Header title='Detalle ' />
-      <Text>ItemDetail #{product}</Text>
+      <Header title='Detalle' />
+      <View style={styles.contentCard}>
+        <View style={styles.card}>
+          <Image
+            resizeMode='cover'
+            resizeMethod='resize'
+            style={styles.cardImage}
+            source={{ uri: product.imagen }}
+          />
+          <View style={styles.headCard}>
+            <Text style={styles.identify}>#{product._id}</Text>
+            <Text style={styles.name}>{product.nombre}</Text>
+          </View>
+          <Text style={styles.cardText}>Region: {product.category}</Text>
+          <Text style={styles.cardText}>Ciudad: {product.ciudad}</Text>
+        </View>
+      </View>
       <Pressable
         style={styles.botonBack} onPress={() => setCategorySelected('all')}
       >
@@ -25,7 +41,71 @@ const styles = StyleSheet.create({
   containItemDetail: {
     width: '100%',
     height: '100%',
-    backgroundColor: colors.color3
+    flex: 1,
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    alignContent: 'center'
+  },
+  contentCard: {
+    width: '90%',
+    height: '90%',
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  card: {
+    width: 300,
+    height: 360,
+    backgroundColor: colors.color4,
+    borderRadius: 5,
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    alignContent: 'center',
+    paddingHorizontal: 1,
+    paddingVertical: 1,
+    margin: 10,
+    shadowColor: '#000',
+    overflow: 'hidden',
+    shadowOffset: {
+      width: 0,
+      height: 2
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
+    gap: 3
+
+  },
+  headCard: {
+    width: '100%',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignContent: 'center',
+    alignItems: 'center',
+    gap: 3
+  },
+  identify: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: colors.color2
+  },
+  name: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: colors.color1
+  },
+  cardText: {
+    width: '100%',
+    fontSize: 16,
+    paddingHorizontal: 10,
+    color: colors.color2
+  },
+  cardImage: {
+    width: '100%',
+    height: '65%',
+    borderRadius: 5,
+    objectFit: 'cover',
+    marginBottom: 1,
+    paddingBottom: 1
   },
   botonBack: {
     position: 'absolute',
@@ -36,7 +116,7 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     backgroundColor: '#FF6B6B',
     marginVertical: 10,
-    flez: 1,
+    flex: 1,
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center'

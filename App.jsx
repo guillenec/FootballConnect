@@ -6,15 +6,16 @@ import fonts from './src/global/fonts'
 const App = () => {
   const [fontsLoaded] = useFonts(fonts)
   const [categorySelected, setCategorySelected] = useState('')
-  const [productDetail, setProductDetail] = useState(0)
+  const [productDetail, setProductDetail] = useState([])
 
   if (!fontsLoaded) {
     return null
   }
 
+  console.log('category selected -> ', categorySelected)
   return (
-    productDetail
-      ? <ItemDetail product={productDetail} setProductDetail={setProductDetail} setCategorySelected={setCategorySelected} />
+    productDetail.length !== 0
+      ? <ItemDetail product={productDetail} setCategorySelected={setCategorySelected} />
       : categorySelected && categorySelected !== 'all'
         ? <ItemListCategory category={categorySelected} setCategorySelected={setCategorySelected} setProductDetail={setProductDetail} />
         : <Home setCategorySelected={setCategorySelected} />

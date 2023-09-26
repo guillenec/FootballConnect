@@ -4,7 +4,7 @@ import React from 'react'
 const ProductItem = ({ item, setProductDetail }) => {
   return (
     <Pressable
-      style={styles.card} onPress={() => setProductDetail(item._id)}
+      style={styles.card} onPress={() => setProductDetail(item)}
     >
       <Image
         resizeMode='cover'
