@@ -13,6 +13,12 @@ const styles = StyleSheet.create({
     alignContent: 'center',
     overflow: 'hidden'
   },
+  loading: {
+    color: 'green', fontFamily: 'NunitoRegular', fontSize: 19, paddingVertical: 10, paddingHorizontal: 15
+  },
+  error: {
+    color: 'red', fontFamily: 'NunitoRegular', fontSize: 19, paddingVertical: 10, paddingHorizontal: 15
+  },
   listContainer: {
     width: '100%',
     height: '100%',

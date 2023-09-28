@@ -64,13 +64,13 @@ const ItemListCategory = ({ navigation, route }) => {
 
   return (
     <View style={styles.containerProducts}>
-      <Header title='Productos' />
+      <Header title='🏟️ Lista equipos' />
 
       <SearchInput onSearch={setKeyword} />
       {
       loader && allProducts.length > 0
         ? (
-          <Text style={{ color: 'green', fontSize: 19, paddingVertical: 10, paddingHorizontal: 15 }}>Cargando...
+          <Text style={styles.loading}>Cargando...
           </Text>
           )
         : arrProduct?.length > 0
@@ -91,7 +91,7 @@ const ItemListCategory = ({ navigation, route }) => {
             </View>
             )
           : (
-            <Text style={{ color: 'red', fontSize: 19, paddingVertical: 10, paddingHorizontal: 15 }}>No se encontraron coincidencias...
+            <Text style={styles.error}>No se encontraron coincidencias...
             </Text>
             )
       }

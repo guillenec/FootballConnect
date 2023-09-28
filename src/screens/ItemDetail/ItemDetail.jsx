@@ -11,7 +11,7 @@ const ItemDetail = ({ navigation, route }) => {
 
   return (
     <View style={styles.containItemDetail}>
-      <Header title='Detalle' />
+      <Header title='📄 Detalle' />
       <View style={styles.contentCard}>
         <View style={styles.card}>
           <Image

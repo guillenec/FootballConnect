@@ -10,6 +10,8 @@ const styles = StyleSheet.create({
   },
   textHeader: {
     fontSize: 30,
+    fontFamily: 'NunitoSemibold',
+    textTransform: 'capitalize',
     color: '#F1FAEE'
   }
 
