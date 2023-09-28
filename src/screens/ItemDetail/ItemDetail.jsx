@@ -4,8 +4,10 @@ import { colors } from '../../utils/colors'
 import Header from '../../components/Header/Header'
 import Ionicons from '@expo/vector-icons/Ionicons'
 
-const ItemDetail = ({ product, setCategorySelected }) => {
+const ItemDetail = ({ navigation, route }) => {
   // console.log(product)
+
+  const { product } = route.params
 
   return (
     <View style={styles.containItemDetail}>
@@ -27,7 +29,8 @@ const ItemDetail = ({ product, setCategorySelected }) => {
         </View>
       </View>
       <Pressable
-        style={styles.botonBack} onPress={() => setCategorySelected('all')}
+        onPress={() => navigation.navigate('Home')}
+        style={styles.botonBack}
       >
         <Ionicons name='arrow-back' size={25} color='white' />
       </Pressable>

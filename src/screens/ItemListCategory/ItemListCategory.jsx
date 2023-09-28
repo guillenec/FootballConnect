@@ -7,12 +7,13 @@ import SearchInput from '../../components/SearchInput/SearchInput'
 import ProductItem from './components/ProductItem/ProductItem'
 import Ionicons from '@expo/vector-icons/Ionicons'
 
-const ItemListCategory = ({ category, navigation }) => {
+const ItemListCategory = ({ navigation, route }) => {
   const [allProducts, setAllProducts] = useState([])
   const [arrProduct, setArrProduct] = useState([])
   const [keyword, setKeyword] = useState('')
   const [loader, setLoader] = useState(false)
 
+  const { category } = route.params
   console.log('CATEGORIA -> ', category)
 
   const fetchProducts = () => {

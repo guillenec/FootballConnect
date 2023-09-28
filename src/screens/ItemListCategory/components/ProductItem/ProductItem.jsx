@@ -4,7 +4,7 @@ import React from 'react'
 const ProductItem = ({ item, navigation }) => {
   return (
     <Pressable
-      onPress={() => navigation.navigate('ItemDetail')}
+      onPress={() => navigation.navigate('ItemDetail', { product: item })}
       style={styles.card}
     >
       <Image
