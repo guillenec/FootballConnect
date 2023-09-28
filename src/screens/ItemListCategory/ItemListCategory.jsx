@@ -7,7 +7,7 @@ import SearchInput from '../../components/SearchInput/SearchInput'
 import ProductItem from './components/ProductItem/ProductItem'
 import Ionicons from '@expo/vector-icons/Ionicons'
 
-const ItemListCategory = ({ category, setCategorySelected, setProductDetail }) => {
+const ItemListCategory = ({ category, navigation }) => {
   const [allProducts, setAllProducts] = useState([])
   const [arrProduct, setArrProduct] = useState([])
   const [keyword, setKeyword] = useState('')
@@ -81,7 +81,7 @@ const ItemListCategory = ({ category, setCategorySelected, setProductDetail }) =
                 keyExtractor={product => product._id}
                 horizontal
                 renderItem={({ item }) => (
-                  <ProductItem item={item} setProductDetail={setProductDetail} />
+                  <ProductItem item={item} navigation={navigation} />
                   // <View>
                   //   <Text>{item.nombre}</Text>
                   // </View>
@@ -95,9 +95,13 @@ const ItemListCategory = ({ category, setCategorySelected, setProductDetail }) =
             )
       }
       <Pressable
-        style={styles.botonBack} onPress={() => setCategorySelected('all')}
+        onPress={() => navigation.navigate('Home')}
+        style={styles.botonBack}
       >
-        <Ionicons name='arrow-back' size={25} color='white' />
+        <Ionicons
+          name='arrow-back'
+          size={25} color='white'
+        />
       </Pressable>
     </View>
   )

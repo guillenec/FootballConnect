@@ -3,10 +3,13 @@ import React from 'react'
 import styles from './CategoryItem.style'
 import Card from '../../../../components/Card/Card'
 
-const CategoryItem = ({ item, setCategorySelected }) => {
-  console.log('Category ITEM ->', item)
+const CategoryItem = ({ item, navigation }) => {
+  // console.log('Category ITEM ->', item)
   return (
-    <Pressable style={styles.CategoryItem} onPress={() => setCategorySelected(item._id)}>
+    <Pressable
+      onPress={() => navigation.navigate('ItemListCategory')}
+      style={styles.CategoryItem}
+    >
       <Card newStyle={styles.contentCard}>
         <Text style={styles.textCategoryItem}>{item.nombre}</Text>
       </Card>

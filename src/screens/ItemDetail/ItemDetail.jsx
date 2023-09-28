@@ -5,7 +5,7 @@ import Header from '../../components/Header/Header'
 import Ionicons from '@expo/vector-icons/Ionicons'
 
 const ItemDetail = ({ product, setCategorySelected }) => {
-  console.log(product)
+  // console.log(product)
 
   return (
     <View style={styles.containItemDetail}>
