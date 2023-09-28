@@ -1,11 +1,12 @@
-import { StyleSheet } from 'react-native'
+import { Platform, StatusBar, StyleSheet } from 'react-native'
 
 const styles = StyleSheet.create({
   containerHome: {
+    fontFamily: 'NunitoRegular',
+    flex: 1,
+    marginTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
     // flex: 1,
     width: '100%',
-    height: '100%',
-    justifyContent: 'center',
     alignItems: 'center'
   },
   containerCategorias: {

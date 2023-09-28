@@ -1,8 +1,9 @@
-import { StyleSheet } from 'react-native'
+import { Platform, StatusBar, StyleSheet } from 'react-native'
 import { colors } from '../../utils/colors'
 
 const styles = StyleSheet.create({
   containerProducts: {
+    marginTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
     width: '100%',
     height: '100%',
     backgroundColor: colors.color4,
@@ -36,13 +37,13 @@ const styles = StyleSheet.create({
   },
   botonBack: {
     position: 'absolute',
-    bottom: 0,
+    bottom: 10,
     left: 5,
     width: 50,
     height: 50,
     borderRadius: 5,
     backgroundColor: '#FF6B6B',
-    marginVertical: 10,
+    marginVertical: 40,
     // flez: 1,
     flexDirection: 'row',
     justifyContent: 'center',

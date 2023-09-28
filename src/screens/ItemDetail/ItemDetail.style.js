@@ -1,10 +1,11 @@
-import { StyleSheet } from 'react-native'
+import { Platform, StatusBar, StyleSheet } from 'react-native'
 import { colors } from '../../utils/colors'
 
 const styles = StyleSheet.create({
   containItemDetail: {
+    marginTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
     width: '100%',
-    height: '100%',
+    height: '95%',
     // flex: 1,
     display: 'flex',
     flexDirection: 'column',
@@ -28,7 +29,6 @@ const styles = StyleSheet.create({
     alignContent: 'center',
     paddingHorizontal: 1,
     paddingVertical: 1,
-    margin: 10,
     shadowColor: '#000',
     overflow: 'hidden',
     shadowOffset: {
@@ -52,12 +52,14 @@ const styles = StyleSheet.create({
   identify: {
     fontSize: 20,
     fontWeight: 'bold',
-    color: colors.color2
+    color: colors.color2,
+    fontFamily: 'NunitoBold'
   },
   name: {
     fontSize: 20,
     fontWeight: 'bold',
-    color: colors.color1
+    color: colors.color1,
+    fontFamily: 'NunitoBold'
   },
   cardText: {
     width: '100%',

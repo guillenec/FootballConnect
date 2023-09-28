@@ -11,20 +11,23 @@ const Navigator = () => {
         <Stack.Screen
           name='Home'
           component={Home}
-          // options={{
-          //   headerShown: false
-          // }}
+          options={{
+            headerShown: false
+          }}
         />
         <Stack.Screen
           name='ItemListCategory'
           component={ItemListCategory}
-          // options={{
-          //   headerShown: false
-          // }}
+          options={{
+            headerShown: false
+          }}
         />
         <Stack.Screen
           name='ItemDetail'
           component={ItemDetail}
+          options={{
+            headerShown: false
+          }}
         />
       </Stack.Navigator>
     </NavigationContainer>
