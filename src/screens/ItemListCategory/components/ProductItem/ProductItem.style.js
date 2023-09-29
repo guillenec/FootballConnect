@@ -4,7 +4,7 @@ import { colors } from '../../../../utils/colors'
 const styles = StyleSheet.create({
   card: {
     backgroundColor: colors.color4,
-    width: 200,
+    width: 170,
     height: 250,
     margin: 10,
     justifyContent: 'space-between',

@@ -5,7 +5,7 @@ const styles = StyleSheet.create({
   containItemDetail: {
     marginTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
     width: '100%',
-    height: '95%',
+    flex: 1,
     // flex: 1,
     display: 'flex',
     flexDirection: 'column',
@@ -14,14 +14,14 @@ const styles = StyleSheet.create({
     alignContent: 'center'
   },
   contentCard: {
-    width: '90%',
-    height: '90%',
+    width: '100%',
+    flex: 1,
     justifyContent: 'center',
     alignItems: 'center'
   },
   card: {
-    width: 300,
-    height: 360,
+    width: 320,
+    height: 380,
     backgroundColor: colors.color4,
     borderRadius: 5,
     justifyContent: 'flex-start',
@@ -77,13 +77,12 @@ const styles = StyleSheet.create({
   },
   botonBack: {
     position: 'absolute',
-    bottom: 0,
+    bottom: 10,
     left: 5,
     width: 50,
     height: 50,
     borderRadius: 5,
     backgroundColor: '#FF6B6B',
-    marginVertical: 10,
     // flex: 1,
     display: 'flex',
     flexDirection: 'row',

@@ -77,10 +77,10 @@ const ItemListCategory = ({ navigation, route }) => {
           ? (
             <View style={styles.listContainer}>
               <FlatList
-                style={styles.list}
                 data={arrProduct}
+                numColumns={2}
                 keyExtractor={product => product._id}
-                horizontal
+                columnWrapperStyle={styles.weapperStyle}
                 renderItem={({ item }) => (
                   <ProductItem item={item} navigation={navigation} />
                   // <View>

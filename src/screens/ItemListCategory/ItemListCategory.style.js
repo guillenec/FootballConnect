@@ -5,7 +5,7 @@ const styles = StyleSheet.create({
   containerProducts: {
     marginTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
     width: '100%',
-    height: '100%',
+    flex: 1,
     backgroundColor: colors.color4,
     // flex: 1,
     flexDirection: 'column',
@@ -22,17 +22,22 @@ const styles = StyleSheet.create({
   },
   listContainer: {
     width: '100%',
-    height: '100%',
+    flex: 1,
     // backgroundColor: colors.color1,
-    paddingHorizontal: 10,
     marginTop: 15,
     overflow: 'scroll'
 
   },
-  list: {
+  weapperStyle: {
     width: '100%',
-    height: 'auto',
-    marginTop: 15
+    flex: 1,
+    marginTop: 15,
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'center',
+    alignItems: 'flex-start',
+    alignContent: 'flex-start',
+    gap: 5
     // backgroundColor: colors.color2
   },
   botonBack: {
@@ -43,7 +48,6 @@ const styles = StyleSheet.create({
     height: 50,
     borderRadius: 5,
     backgroundColor: '#FF6B6B',
-    marginVertical: 40,
     // flez: 1,
     flexDirection: 'row',
     justifyContent: 'center',
