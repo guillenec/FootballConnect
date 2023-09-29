@@ -26,3 +26,7 @@
 - **Color de fondo del botón de navegación**: #FF6B6B
 - **Color del texto de navegación**: #FFFFFF
 - **Color del texto de navegación en hover**: #5C7A89
+
+## MER prueba1
+
+![imagen](./futbolConect.png)
