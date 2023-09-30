@@ -26,7 +26,7 @@ const ItemDetail = ({ navigation, route }) => {
           </View>
           <Text style={styles.cardText}>Region: {product.category}</Text>
           <Text style={styles.cardText}>Ciudad: {product.ciudad}</Text>
-        </View>
+        </View>·
       </View>
       <Pressable
         onPress={() => navigation.navigate('Home')}
