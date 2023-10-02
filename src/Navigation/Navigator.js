@@ -5,7 +5,9 @@ const Stack = createNativeStackNavigator()
 
 const Navigator = () => {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator
+      initialRouteName='Home'
+    >
       <Stack.Screen
         name='Home'
         component={Home}

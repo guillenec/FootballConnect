@@ -1,7 +1,6 @@
 import { NavigationContainer } from '@react-navigation/native'
 import { useFonts } from 'expo-font'
 import fonts from './src/global/fonts'
-import Navigator from './src/Navigation/Navigator'
 import TabsNavigator from './src/Navigation/TabsNavigator'
 
 const App = () => {
@@ -13,7 +12,6 @@ const App = () => {
 
   return (
     <NavigationContainer>
-      {/* <Navigator /> */}
       <TabsNavigator />
     </NavigationContainer>
 

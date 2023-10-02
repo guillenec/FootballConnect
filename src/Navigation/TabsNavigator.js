@@ -2,23 +2,42 @@ import React from 'react'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import CartNavigator from './CartNavigator'
 import Navigator from './Navigator'
+import { StyleSheet } from 'react-native'
+import { colors } from '../utils/colors'
+// import Ionicons from '@expo/vector-icons/Ionicons'
+import Ionicons from '@expo/vector-icons/Ionicons'
 
 const Tab = createBottomTabNavigator()
 
 const TabsNavigator = () => {
   return (
-    <Tab.Navigator>
+    <Tab.Navigator
+      initialRouteName='Shop'
+      screenOptions={{
+        headerShown: false,
+        tabBarShowLabel: false,
+        tabBarActiveTintColor: 'tomato',
+        tabBarInactiveTintColor: 'pink',
+        tabBarStyle: stylos.tabBar
+      }}
+    >
       <Tab.Screen
         name='Shop'
         component={Navigator}
         options={{
-          headerShown: false
+          headerShown: false,
+          tabBarIcon: ({ focused }) => (
+            <Ionicons name='home-outline' size={23} color={focused ? colors.color1 : 'pink'} />
+          )
         }}
       />
       <Tab.Screen
         name='Cart' component={CartNavigator}
         options={{
-          headerShown: false
+          headerShown: false,
+          tabBarIcon: ({ focused }) => (
+            <Ionicons name='cart-outline' size={23} color={focused ? colors.color1 : 'pink'} />
+          )
         }}
       />
     </Tab.Navigator>
@@ -26,3 +45,13 @@ const TabsNavigator = () => {
 }
 
 export default TabsNavigator
+
+const stylos = StyleSheet.create({
+  tabBar: {
+    backgroundColor: colors.color2,
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center'
+
+  }
+})
