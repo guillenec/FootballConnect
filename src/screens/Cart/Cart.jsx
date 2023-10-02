@@ -1,4 +1,4 @@
-import { Text, View } from 'react-native'
+import { Pressable, Text, View } from 'react-native'
 import React from 'react'
 import styles from './Cart.style'
 import Header from '../../components/Header/Header'
@@ -8,7 +8,12 @@ const Cart = () => {
     <View style={styles.cartContainer}>
       <Header title='🛒 Carrito' />
 
-      <Text>Cart</Text>
+      <View style={styles.cartContentContainer}>
+        <Pressable style={styles.cartContent}>
+          <Text style={styles.cartContentText}>Confirmar</Text>
+        </Pressable>
+      </View>
+
     </View>
   )
 }

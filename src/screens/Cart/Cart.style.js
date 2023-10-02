@@ -11,17 +11,22 @@ const styles = StyleSheet.create({
     backgroundColor: colors.color7,
     alignItems: 'center'
   },
-  containerCategorias: {
+  cartContentContainer: {
     width: '100%',
+    backgroundColor: 'tomato',
     flex: 1,
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
     alignItems: 'center',
     // backgroundColor: 'red',
     borderWidth: 2,
-    borderColor: 'black',
+    borderColor: 'tomato',
     borderRadius: 4,
-    padding: 5
-  }
+    padding: 5,
+    paddingTop: 10
+
+  },
+  cartContent: {},
+  cartContentText: {}
 })
 
 export default styles

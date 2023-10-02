@@ -40,15 +40,15 @@ const TabsNavigator = () => {
           )
         }}
       />
-      {/* <Tab.Screen
-        name='menu' component={}
+      <Tab.Screen
+        name='menu' component={CartNavigator}
         options={{
           headerShown: false,
           tabBarIcon: ({ focused }) => (
             <Ionicons name='list' size={23} color={focused ? colors.color1 : 'pink'} />
           )
         }}
-      /> */}
+      />
     </Tab.Navigator>
   )
 }
