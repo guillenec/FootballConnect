@@ -8,7 +8,19 @@ const styles = StyleSheet.create({
     marginTop: statusBarHeight,
     width: '100%',
     flex: 1,
-    backgroundColor: colors.color7
+    backgroundColor: colors.color7,
+    alignItems: 'center'
+  },
+  containerCategorias: {
+    width: '100%',
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    // backgroundColor: 'red',
+    borderWidth: 2,
+    borderColor: 'black',
+    borderRadius: 4,
+    padding: 5
   }
 })
 

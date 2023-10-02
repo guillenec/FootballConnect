@@ -1,6 +1,8 @@
+import { NavigationContainer } from '@react-navigation/native'
 import { useFonts } from 'expo-font'
 import fonts from './src/global/fonts'
 import Navigator from './src/Navigation/Navigator'
+import TabsNavigator from './src/Navigation/TabsNavigator'
 
 const App = () => {
   const [fontsLoaded] = useFonts(fonts)
@@ -10,17 +12,15 @@ const App = () => {
   }
 
   return (
-    <Navigator />
+    <NavigationContainer>
+      {/* <Navigator /> */}
+      <TabsNavigator />
+    </NavigationContainer>
+
   )
 }
 
 export default App
-// const styleApp = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     marginTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0
-//   }
-// })
 
 /*
 Home: 🏠 Home

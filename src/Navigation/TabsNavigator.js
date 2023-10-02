@@ -1,22 +1,28 @@
-import { StyleSheet } from 'react-native'
 import React from 'react'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
-import { Home, ItemListCategory } from '../screens'
+import CartNavigator from './CartNavigator'
+import Navigator from './Navigator'
 
 const Tab = createBottomTabNavigator()
+
 const TabsNavigator = () => {
   return (
-    <Tab.Navigator style={styles.container}>
-      <Tab.Screen name='Home' component={Home} />
-      <Tab.Screen name='ItemListCategory' component={ItemListCategory} />
+    <Tab.Navigator>
+      <Tab.Screen
+        name='Shop'
+        component={Navigator}
+        options={{
+          headerShown: false
+        }}
+      />
+      <Tab.Screen
+        name='Cart' component={CartNavigator}
+        options={{
+          headerShown: false
+        }}
+      />
     </Tab.Navigator>
   )
 }
 
 export default TabsNavigator
-
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: '#fff'
-  }
-})

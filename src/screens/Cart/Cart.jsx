@@ -4,7 +4,7 @@ import styles from './Cart.style'
 
 const Cart = () => {
   return (
-    <View style={styles.containCart}>
+    <View style={styles.cartContainer}>
       <Text>Cart</Text>
     </View>
   )
