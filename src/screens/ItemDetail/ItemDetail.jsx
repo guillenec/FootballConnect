@@ -6,7 +6,7 @@ import styles from './ItemDetail.style'
 
 const ItemDetail = ({ navigation, route }) => {
   const { product } = route.params
-  console.log('Productos ->', product)
+  // console.log('Productos ->', product)
 
   return (
     <View style={styles.containItemDetail}>

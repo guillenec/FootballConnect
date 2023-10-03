@@ -24,22 +24,22 @@ export const equipos = [
 
 export const usuarios = [
   {
-    id_usuario: 1,
+    id: 1,
     nombre: 'Usuario 1',
     email: 'usuario1@email.com'
   },
   {
-    id_usuario: 2,
+    id: 2,
     nombre: 'Usuario 2',
     email: 'usuario2@email.com'
   },
   {
-    id_usuario: 3,
+    id: 3,
     nombre: 'Usuario 3',
     email: 'usuario3@email.com'
   },
   {
-    id_usuario: 4,
+    id: 4,
     nombre: 'Usuario 4',
     email: 'usuario4@email.com'
   }
@@ -70,17 +70,17 @@ export const usuariosEquipos = [
 
 export const canchas = [
   {
-    id_cancha: 1,
+    id: 1,
     nombre: 'Cancha 1',
     id_local: 1
   },
   {
-    id_cancha: 2,
+    id: 2,
     nombre: 'Cancha 2',
     id_local: 2
   },
   {
-    id_cancha: 3,
+    id: 3,
     nombre: 'Cancha 3',
     id_local: 1
   }
@@ -88,27 +88,33 @@ export const canchas = [
 
 export const reservas = [
   {
-    id_reserva: 1,
+    id: 1,
     fecha_hora: '2023-09-28 10:00',
     id_usuario: 1,
     id_cancha: 1
   },
   {
-    id_reserva: 2,
+    id: 2,
     fecha_hora: '2023-09-29 15:00',
     id_usuario: 2,
     id_cancha: 2
   },
   {
-    id_reserva: 3,
+    id: 3,
     fecha_hora: '2023-09-30 14:00',
     id_usuario: 3,
     id_cancha: 1
   },
   {
-    id_reserva: 4,
+    id: 4,
     fecha_hora: '2023-10-01 12:00',
     id_usuario: 4,
+    id_cancha: 3
+  },
+  {
+    id: 5,
+    fecha_hora: '2023-10-05 15:00',
+    id_usuario: 1,
     id_cancha: 3
   }
 ]
@@ -138,17 +144,17 @@ export const galeriasCanchas = [
   {
     id: 1,
     id_cancha: 1,
-    imagenes: ['imagen1.jpg', 'imagen2.jpg']
+    imagenes: ['https://recreasport.com/wp-content/uploads/2017/04/Reynosa-Tec.jpg', 'https://lanoticiaregional.com.mx/wp-content/uploads/2020/09/CANCHAS-SECUNDARIAS-96-Y-521-1024x574.jpeg']
   },
   {
     id: 2,
     id_cancha: 2,
-    imagenes: ['imagen3.jpg', 'imagen4.jpg']
+    imagenes: ['https://www.hoysejuega.com/uploads/Modules/ImagenesComplejos/800_600_la-canchita---futbol-5-2.jpg', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTP9TM8XWXCmrwG1L7iHQB8tLN-K32or0pkDA8go4bhaVjTFjRR5pUKZtA1Oo12YejROMA&usqp=CAUimagen4.jpg']
   },
   {
     id: 3,
     id_cancha: 3,
-    imagenes: ['imagen5.jpg', 'imagen6.jpg']
+    imagenes: ['https://muchosnegociosrentables.com/wp-content/uploads/2015/08/campo-de-f%C3%BAtbol-5-o-7.jpg']
   }
 ]
 

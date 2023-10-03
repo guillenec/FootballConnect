@@ -14,7 +14,7 @@ const ItemListCategory = ({ navigation, route }) => {
   const [loader, setLoader] = useState(false)
 
   const { category } = route.params
-  console.log('CATEGORIA -> ', category)
+  // console.log('CATEGORIA -> ', category)
 
   const fetchProducts = () => {
     return new Promise((resolve, reject) => {
@@ -43,16 +43,15 @@ const ItemListCategory = ({ navigation, route }) => {
 
   useEffect(() => {
     getProducts()
-
-    console.log('todos ->', allProducts)
+    // console.log('todos ->', allProducts)
     if (category && keyword === '') {
       const filterCategory = allProducts?.filter(item => item.categoria_id === category)
-      console.log('filterCategory -->', filterCategory)
+      // console.log('filterCategory -->', filterCategory)
 
       setArrProduct(filterCategory)
     } else if (keyword !== '') {
       const filterKeyword = allProducts?.filter(item => item.nombre.toLowerCase().includes(keyword.toLowerCase()))
-      console.log('filterCategory -->', filterKeyword)
+      // console.log('filterCategory -->', filterKeyword)
 
       setArrProduct(filterKeyword)
     }

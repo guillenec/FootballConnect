@@ -1,6 +1,7 @@
 import { Image, Pressable, Text, View } from 'react-native'
 import React from 'react'
 import styles from './ProductItem.style'
+
 const ProductItem = ({ item, navigation }) => {
   return (
     <Pressable

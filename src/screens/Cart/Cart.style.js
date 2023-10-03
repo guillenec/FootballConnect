@@ -8,25 +8,31 @@ const styles = StyleSheet.create({
     marginTop: statusBarHeight,
     width: '100%',
     flex: 1,
-    backgroundColor: colors.color7,
     alignItems: 'center'
   },
   cartContentContainer: {
     width: '100%',
-    backgroundColor: 'tomato',
     flex: 1,
     justifyContent: 'flex-start',
     alignItems: 'center',
     // backgroundColor: 'red',
     borderWidth: 2,
-    borderColor: 'tomato',
+    borderColor: colors.color1,
     borderRadius: 4,
     padding: 5,
     paddingTop: 10
 
   },
-  cartContent: {},
-  cartContentText: {}
+  cartTextTitle: {
+    fontFamily: 'NunitoBold',
+    fontSize: 20,
+    color: colors.color1
+  },
+  cartTextPArrafo: {
+    fontFamily: 'NunitoRegular',
+    fontSize: 16,
+    color: colors.color3
+  }
 })
 
 export default styles

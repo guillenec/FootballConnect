@@ -5,7 +5,7 @@ import CategoryItem from '../CategoryItem/CategoryItem'
 import styles from '../CategoryItem/CategoryItem.style'
 
 const Categorias = ({ navigation }) => {
-  console.log('Categorieas ->', categorias)
+  // console.log('Categorieas ->', categorias)
 
   return (
     <FlatList
