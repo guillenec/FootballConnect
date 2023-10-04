@@ -3,7 +3,7 @@ import { reservas, canchas, usuarios, galeriasCanchas } from '../../../data/cate
 export const fetchReserva = (id) => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
-      resolve(reservas.find((reserva) => reserva.id === parseInt(id)))
+      resolve(reservas.filter((reserva) => reserva.id_usuario === parseInt(id)))
     }, 1000)
   })
 }
@@ -35,34 +35,32 @@ export const fetchGaleriaCancha = async (id) => {
 async function obtenerReservaCompleta (idUsuario) {
   try {
     // obtener reservas por id del usuario
-    const reserva = await fetchReserva(idUsuario)
-    console.log('reserva', reserva)
+    const reservas = await fetchReserva(idUsuario)
     // const reserva = reservas.find((reserva) => reserva.id === parseInt(idUsuario))
 
-    // if (!reserva) {
-    //   throw new Error('No se encontro reserva')
-    // }
-    // obtenemos los datos de la cancha reservada por el id
-    // const cancha = await fetchCancha(reserva.id_cancha)
-
-    // obtenemos los datos del usuario que reservo la cancha
-    // const usuario = await fetchUsuario(reserva.id_usuario)
-
-    // obtenemos la galeria de la cancha
-    // const galeria = await fetchGaleriaCancha(cancha.id)
-    // const cancha = canchas.find((cancha) => cancha.id === parseInt(reserva.id_cancha))
-
-    // const usuario = usuarios.find((usuario) => usuario.id === parseInt(reserva.id_usuario))
-
-    // const galeria = galeriasCanchas.find((galeriaCancha) => galeriaCancha.id_cancha === parseInt(cancha.id))
-
-    const reservaCompleta = {
-      ...reserva
-      // ...cancha,
-      // ...usuario,
-      // ...galeria
+    if (!reservas.length) {
+      throw new Error('No se encontro reserva')
     }
-    return reservaCompleta
+    // Obtener las promesas para las llamadas a fetchCancha, fetchUsuario y fetchGaleriaCancha
+    const promises = reservas.map(async (reserva) => {
+      const cancha = await fetchCancha(reserva.id_cancha)
+      const usuario = await fetchUsuario(reserva.id_usuario)
+      const galeria = await fetchGaleriaCancha(cancha.id)
+
+      return {
+        reserva,
+        cancha,
+        usuario,
+        galeria
+      }
+    })
+
+    // Esperar a que todas las promesas se resuelvan
+    const reservasCompletas = await Promise.all(promises)
+
+    console.log('RESERVA COMPLETA ->', reservasCompletas)
+
+    return reservasCompletas
   } catch (error) {
     console.log('error al traer las reservas', error)
     throw error

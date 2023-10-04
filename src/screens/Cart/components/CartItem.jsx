@@ -4,16 +4,18 @@ import styles from './cartItem.style'
 import Ionicons from '@expo/vector-icons/Ionicons'
 
 const CartItem = ({ objeto }) => {
+  console.log('OBJETO CART ->', objeto)
   return (
     <View style={styles.containCartItem}>
       <Image
         resizeMode='cover'
         resizeMethod='resize'
         style={styles.cardImage}
-        source={{ uri: objeto.imagen }}
+        source={{ uri: objeto?.galeria?.imagenes[0] || '...cargando' }}
       />
-      <View>
-        <Text style={styles.name}>{objeto.nombre || '...cargando'}</Text>
+      <View style={styles.headCard}>
+        <Text style={styles.name}>{objeto?.cancha.nombre || '...cargando'}</Text>
+        <Text style={styles.name}>{objeto?.cancha.direccion || '...cargando'}</Text>
       </View>
       <View>
         <Text style={styles.detalle}>{objeto.nombre || '...cargando'}</Text>

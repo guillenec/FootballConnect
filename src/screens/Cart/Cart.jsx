@@ -1,18 +1,19 @@
-import { Pressable, Text, View } from 'react-native'
+import { FlatList, Pressable, Text, View } from 'react-native'
 import React, { useEffect, useState } from 'react'
-
 import styles from './Cart.style'
 import Header from '../../components/Header/Header'
 import obtenerReservaCompleta from './Service/fetchCarrito'
+import CartItem from './components/CartItem'
 
 const Cart = () => {
-  const [cart, setCart] = useState([])
+  const [cart, setCart] = useState(null)
   // simulare traer los datos de las reservas
+
   useEffect(() => {
     obtenerReservaCompleta(1)
       .then((res) => {
-        setCart(res.data)
-        console.log('RESERVAS ->', res.data)
+        setCart(res)
+        console.log('RESERVAS ->', res)
       })
       .catch((err) => {
         console.error('ERROR ->', err)
@@ -23,15 +24,14 @@ const Cart = () => {
   return (
     <View style={styles.cartContainer}>
       <Header title='🛒 Carrito' />
-      <View>
-        {/* <FlatList
+      <View style={styles.list}>
+        <FlatList
           data={cart}
-          numColumns={1}
-          keyExtractor={(item) => item.id}
+          keyExtractor={(item) => item?.reserva?.id}
           renderItem={({ item }) => (
-            <Text>{item.nombre}</Text>
+            <CartItem objeto={item} />
           )}
-        /> */}
+        />
       </View>
       <View style={styles.cartContentContainer}>
         <Pressable style={styles.cartContent}>

@@ -3,32 +3,42 @@ import { colors } from '../../../utils/colors'
 
 const styles = StyleSheet.create({
   containCartItem: {
-    width: '100%',
-    height: 100,
+    width: '95%',
+    overflow: 'hidden',
+    height: 150,
     // flex: 1,
     color: colors.color1,
-    backgroundColor: colors.color5,
-    alignItems: 'flex-start',
+    backgroundColor: colors.color4,
+    flexDirection: 'row',
+    flexWrap: 'nowrap',
     justifyContent: 'flex-start',
-    alignContent: 'flex-start',
+    alignItems: 'center',
+    alignContent: 'center',
     gap: 10,
     borderWidth: 2,
     borderColor: colors.color1,
     borderRadius: 4,
     padding: 5,
     shadowOffset: {
-      width: 0,
-      height: 2
+      width: 3,
+      height: 3
     },
     shadowOpacity: 0.25,
     shadowRadius: 5,
-    elevation: 5
+    elevation: 5,
+    marginLeft: 5,
+    marginTop: 10
 
   },
   cardImage: {
-    width: 50,
-    height: '100%',
-    resizeMode: 'cover'
+    height: '95%',
+    aspectRatio: 1,
+    resizeMode: 'cover',
+    borderRadius: 4,
+    borderWidth: 2
+  },
+  headCard: {
+    width: 120
   },
   name: {
     color: colors.color1,

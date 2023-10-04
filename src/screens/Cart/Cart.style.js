@@ -10,12 +10,21 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center'
   },
+  list: {
+    width: '100%',
+    flex: 1,
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignContent: 'center',
+    alignItems: 'center',
+    gap: 10
+  },
   cartContentContainer: {
     width: '100%',
     flex: 1,
     justifyContent: 'flex-start',
     alignItems: 'center',
-    // backgroundColor: 'red',
+    backgroundColor: 'green',
     borderWidth: 2,
     borderColor: colors.color1,
     borderRadius: 4,
