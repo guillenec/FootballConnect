@@ -2,10 +2,15 @@ import { StyleSheet } from 'react-native'
 import { colors } from '../../../utils/colors'
 
 const styles = StyleSheet.create({
+  container: {
+    width: '100%',
+    height: 450,
+    backgroundColor: colors.color5
+  },
   containCartItem: {
     width: 400,
     overflow: 'hidden',
-    height: 150,
+    height: 210,
     // flex: 1,
     color: colors.color1,
     backgroundColor: colors.color4,
@@ -30,7 +35,7 @@ const styles = StyleSheet.create({
     marginHorizontal: '.5%'
   },
   cardImage: {
-    height: '95%',
+    height: 150,
     aspectRatio: 1,
     resizeMode: 'cover',
     borderRadius: 4,
@@ -46,22 +51,6 @@ const styles = StyleSheet.create({
     color: colors.color1,
     fontFamily: 'NunitoSemibold',
     fontSize: 18
-  },
-  contentMaps: {
-    width: 100,
-    flex: 1,
-    backgroundColor: 'purple',
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
-  maps: {
-    width: '100%',
-    height: '100%'
-  },
-  detalle: {
-    color: colors.color3,
-    fontFamily: 'NunitoRegular',
-    fontSize: 16
   },
   button: {
     position: 'absolute',
@@ -92,6 +81,20 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 3, height: 3 },
     shadowOpacity: 0.5,
     shadowRadius: 4
+  },
+
+  // bottom
+  contentMaps: {
+    width: 200,
+    height: 200,
+    backgroundColor: colors.color1,
+    justifyContent: 'center',
+    alignItems: 'center'
+
+  },
+  map: {
+    width: '90%',
+    height: '90%'
   }
 })
 
