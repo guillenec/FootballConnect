@@ -8,9 +8,10 @@ import CartItem from './components/CartItem'
 const Cart = () => {
   const [cart, setCart] = useState(null)
   // simulare traer los datos de las reservas
+  const usuario = 3
 
   useEffect(() => {
-    obtenerReservaCompleta(1)
+    obtenerReservaCompleta(usuario)
       .then((res) => {
         setCart(res)
         console.log('RESERVAS ->', res)

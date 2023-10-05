@@ -47,11 +47,17 @@ async function obtenerReservaCompleta (idUsuario) {
       const usuario = await fetchUsuario(reserva.id_usuario)
       const galeria = await fetchGaleriaCancha(cancha.id)
 
+      const horaInicio = new Date(`${reserva.fecha}T${reserva.horaInicio}`)
+      const horaFin = new Date(`${reserva.fecha}T${reserva.horaFin}`)
+      const duracionReserva = (horaFin - horaInicio) / 1000 / 60 // Duración en minutos
+
       return {
         reserva,
         cancha,
         usuario,
-        galeria
+        galeria,
+        horasPedidas: duracionReserva / 60,
+        precioFinal: duracionReserva * cancha.costoHora
       }
     })
 

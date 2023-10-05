@@ -94,24 +94,24 @@ export const canchas = [
   {
     id: 1,
     nombre: 'Cancha 1',
-    costo_hora: 2500,
+    costoHora: 2500,
     horarios: 'Lunes a Viernes de 9:00 a 18:00',
-    direccion: 'Dirección de la cancha 1',
+    direccion: 'Carlos Francisco Melo 402, B1638 Vicente López, Provincia de Buenos Aires',
     id_local: 1
   },
   {
     id: 2,
     nombre: 'Cancha 2',
-    costo_hora: 3500,
+    costoHora: 3500,
     horarios: 'Lunes a Viernes de 9:00 a 18:00',
-    direccion: 'Dirección de la cancha 2',
+    direccion: 'Isabel la Católica 772, C1268 ACP, Buenos Aires',
     id_local: 2
   },
   {
     id: 3,
     nombre: 'Cancha 3',
-    costo_hora: 4500,
-    horarios: 'Lunes a Viernes de 9:00 a 18:00',
+    costoHora: 4500,
+    horarios: 'José A. Cabrera 3544, C1186 AAP, Buenos Aires',
     direccion: 'Dirección de la cancha 3',
     id_local: 1
   }
@@ -120,31 +120,41 @@ export const canchas = [
 export const reservas = [
   {
     id: 1,
-    fecha_hora: '2023-09-28 10:00',
+    fecha: '2023-09-28',
+    horaInicio: '10:00',
+    horaFin: '11:00',
     id_usuario: 1,
     id_cancha: 1
   },
   {
     id: 2,
-    fecha_hora: '2023-09-29 15:00',
+    fecha: '2023-09-29',
+    horaInicio: '14:00',
+    horaFin: '15:00',
     id_usuario: 2,
     id_cancha: 2
   },
   {
     id: 3,
-    fecha_hora: '2023-09-30 14:00',
+    fecha: '2023-09-30',
+    horaInicio: '14:00',
+    horaFin: '16:00',
     id_usuario: 3,
     id_cancha: 1
   },
   {
     id: 4,
-    fecha_hora: '2023-10-01 12:00',
+    fecha: '2023-10-01',
+    horaInicio: '18:00',
+    horaFin: '19:00',
     id_usuario: 4,
     id_cancha: 3
   },
   {
     id: 5,
-    fecha_hora: '2023-10-05 15:00',
+    fecha: '2023-10-05',
+    horaInicio: '20:00',
+    horaFin: '21:00',
     id_usuario: 1,
     id_cancha: 3
   }

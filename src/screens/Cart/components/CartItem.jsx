@@ -1,10 +1,28 @@
-import { Image, Pressable, Text, View } from 'react-native'
-import React from 'react'
+import { Image, Platform, Text, TouchableOpacity, View } from 'react-native'
+import React, { useState, useEffect } from 'react'
 import styles from './cartItem.style'
 import Ionicons from '@expo/vector-icons/Ionicons'
+// import MapView from 'react-native-maps'
+import geocodeAddress from '../Service/GeocodingService'
 
 const CartItem = ({ objeto }) => {
   console.log('OBJETO CART ->', objeto)
+  const [cordenadas, setCordenadas] = useState(null)
+  console.log('CORDENADAS ->', cordenadas)
+  useEffect(() => {
+    const fetchCoordenadas = async () => {
+      try {
+        const coordenadas = await geocodeAddress(objeto?.cancha.direccion)
+        setCordenadas(coordenadas)
+      } catch (error) {
+        console.error('error al obtener coordenadas', error.message)
+      }
+    }
+    if (objeto?.cancha.direccion) {
+      fetchCoordenadas()
+    }
+  }, [objeto?.cancha.direccion])
+
   return (
     <View style={styles.containCartItem}>
       <Image
@@ -15,15 +33,22 @@ const CartItem = ({ objeto }) => {
       />
       <View style={styles.headCard}>
         <Text style={styles.name}>{objeto?.cancha.nombre || '...cargando'}</Text>
-        <Text style={styles.name}>{objeto?.cancha.direccion || '...cargando'}</Text>
+        <Text style={styles.name}>{objeto?.reserva.horaInicio || '...cargando'}</Text>
+
       </View>
-      <View>
-        <Text style={styles.detalle}>{objeto.nombre || '...cargando'}</Text>
-        <Text style={styles.detalle}>Cantidad</Text>
+      <View style={styles.contentMaps}>
+        <Text style={styles.name}>{cordenadas?.lat || '...cargando'}</Text>
+        <Text style={styles.name}>{cordenadas?.lng || '...cargando'}</Text>
+
       </View>
-      <Pressable style={styles.button}>
-        <Ionicons name='trash' />
-      </Pressable>
+      <TouchableOpacity
+        style={[
+          styles.button,
+          Platform.OS === 'android' ? styles.androidShadow : styles.iosShadow
+        ]}
+      >
+        <Ionicons style={styles.icon} name='trash' />
+      </TouchableOpacity>
     </View>
   )
 }

@@ -3,7 +3,7 @@ import { colors } from '../../../utils/colors'
 
 const styles = StyleSheet.create({
   containCartItem: {
-    width: '95%',
+    width: 400,
     overflow: 'hidden',
     height: 150,
     // flex: 1,
@@ -26,9 +26,8 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowRadius: 5,
     elevation: 5,
-    marginLeft: 5,
-    marginTop: 10
-
+    marginTop: 10,
+    marginHorizontal: '.5%'
   },
   cardImage: {
     height: '95%',
@@ -38,12 +37,26 @@ const styles = StyleSheet.create({
     borderWidth: 2
   },
   headCard: {
-    width: 120
+    backgroundColor: colors.color5,
+    width: 120,
+    justifyContent: 'center',
+    alignItems: 'center'
   },
   name: {
     color: colors.color1,
-    fontFamily: 'NunitoSemiBold',
+    fontFamily: 'NunitoSemibold',
     fontSize: 18
+  },
+  contentMaps: {
+    width: 100,
+    flex: 1,
+    backgroundColor: 'purple',
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  maps: {
+    width: '100%',
+    height: '100%'
   },
   detalle: {
     color: colors.color3,
@@ -51,19 +64,34 @@ const styles = StyleSheet.create({
     fontSize: 16
   },
   button: {
+    position: 'absolute',
+    left: 5,
+    justifyContent: 'center',
+    alignItems: 'center',
+    bottom: 8,
+    width: 40,
+    height: 40,
     backgroundColor: colors.color1,
     color: colors.color4,
-    paddingVertical: 10,
-    paddingHorizontal: 20,
-    borderRadius: 10,
-    shadowOffset: {
-      width: 0,
-      height: 2
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 5,
-    elevation: 5
-
+    borderRadius: 5,
+    shadowColor: 'black',
+    shadowOffset: { width: 2, height: 2 },
+    shadowOpacity: 0.5,
+    shadowRadius: 4
+  },
+  icon: {
+    color: colors.color4,
+    fontSize: 20
+  },
+  androidShadow: {
+    elevation: 5 // Elevación para sombra en Android
+  },
+  // iOS shadow
+  iosShadow: {
+    shadowColor: colors.color3,
+    shadowOffset: { width: 3, height: 3 },
+    shadowOpacity: 0.5,
+    shadowRadius: 4
   }
 })
 
