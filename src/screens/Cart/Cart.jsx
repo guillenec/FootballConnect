@@ -39,6 +39,8 @@ const Cart = () => {
           <Text style={styles.cartTextTitle}>Confirmar</Text>
           <Text style={styles.cartTextPArrafo}>Total $0.00</Text>
         </Pressable>
+
+        <View style={styles.containerMaps} />
       </View>
 
     </View>
