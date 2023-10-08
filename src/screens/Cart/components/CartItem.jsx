@@ -7,7 +7,7 @@ import geocodeAddress from '../Service/GeocodingService'
 import MapView from 'react-native-maps'
 
 const CartItem = ({ objeto }) => {
-  console.log('OBJETO CART ->', objeto)
+  // console.log('OBJETO CART ->', objeto)
   const [cordenadas, setCordenadas] = useState(null)
   console.log('CORDENADAS ->', cordenadas)
   useEffect(() => {
@@ -26,10 +26,10 @@ const CartItem = ({ objeto }) => {
 
   return (
     <View style={styles.containCartItem}>
-      <View>
+      <View style={styles.contenido}>
         <View style={styles.headCard}>
-          <Text style={styles.name}>{objeto?.cancha.nombre || '...cargando'}</Text>
-          <Text style={styles.name}>{objeto?.reserva.horaInicio || '...cargando'}</Text>
+          <Text style={styles.titulo}>{objeto?.cancha.nombre || '...cargando'}</Text>
+          <Text style={styles.subtitulo}>{objeto?.reserva.horaInicio || '...cargando'}</Text>
         </View>
         <Image
           resizeMode='cover'
@@ -48,19 +48,31 @@ const CartItem = ({ objeto }) => {
       </View>
 
       <View style={styles.contentMaps}>
-        <MapView
-          style={styles.map}
-          initialRegion={{
-            latitude: -34.6037,
-            longitude: -58.3816,
-            latitudeDelta: 0.0922,
-            longitudeDelta: 0.0421
-          }}
-          showsUserLocation
-          userInterfaceStyle='dark'
-        />
-        {/* <Text style={styles.name}>{cordenadas?.lat || '...cargando'}</Text>
-    <Text style={styles.name}>{cordenadas?.lng || '...cargando'}</Text> */}
+        {cordenadas && (
+
+          <MapView
+            style={styles.map}
+            initialRegion={{
+              latitude: cordenadas?.lat || -41.133675,
+              longitude: cordenadas?.lng || -71.301251,
+              latitudeDelta: 0.0922,
+              longitudeDelta: 0.0421
+            }}
+            showsUserLocation
+            userInterfaceStyle='dark'
+          >
+            {
+          // cordenadas && (
+
+          //   <MapView.Marker
+          //     coordinate={{ latitude: -41.133675, longitude: -71.301251 }}
+          //     title='Descripción'
+          //     description='Descripción del marcador'
+          //   />
+          // )
+          }
+          </MapView>
+        )}
 
       </View>
     </View>

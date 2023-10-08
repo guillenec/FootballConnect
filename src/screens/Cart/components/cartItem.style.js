@@ -2,11 +2,6 @@ import { StyleSheet } from 'react-native'
 import { colors } from '../../../utils/colors'
 
 const styles = StyleSheet.create({
-  container: {
-    width: '100%',
-    height: 450,
-    backgroundColor: colors.color5
-  },
   containCartItem: {
     width: 400,
     overflow: 'hidden',
@@ -19,11 +14,11 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start',
     alignItems: 'center',
     alignContent: 'center',
-    gap: 10,
+    gap: 2,
     borderWidth: 2,
     borderColor: colors.color1,
     borderRadius: 4,
-    padding: 5,
+    padding: 2,
     shadowOffset: {
       width: 3,
       height: 3
@@ -34,23 +29,39 @@ const styles = StyleSheet.create({
     marginTop: 10,
     marginHorizontal: '.5%'
   },
-  cardImage: {
-    height: 150,
-    aspectRatio: 1,
-    resizeMode: 'cover',
+  contenido: {
+    position: 'relative',
+    width: '50%',
+    flex: 1,
     borderRadius: 4,
-    borderWidth: 2
-  },
-  headCard: {
-    backgroundColor: colors.color5,
-    width: 120,
+    overflow: 'hidden',
+    flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center'
   },
-  name: {
+  headCard: {
+    width: '100%',
+    height: 'auto',
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  titulo: {
     color: colors.color1,
-    fontFamily: 'NunitoSemibold',
-    fontSize: 18
+    fontFamily: 'NunitoBold',
+    fontSize: 20
+  },
+  subtitulo: {
+    color: colors.color3,
+    fontFamily: 'NunitoRegular',
+    fontSize: 16
+  },
+  cardImage: {
+    backgroundColor: colors.color3,
+    width: '100%',
+    flex: 1,
+    resizeMode: 'cover',
+    borderRadius: 4,
+    borderWidth: 2
   },
   button: {
     position: 'absolute',
@@ -85,16 +96,18 @@ const styles = StyleSheet.create({
 
   // bottom
   contentMaps: {
-    width: 200,
-    height: 200,
-    backgroundColor: colors.color1,
+    width: '50%',
+    height: '100%',
     justifyContent: 'center',
-    alignItems: 'center'
-
+    alignItems: 'center',
+    borderWidth: 2,
+    borderColor: colors.color5,
+    borderRadius: 4,
+    overflow: 'hidden'
   },
   map: {
-    width: '90%',
-    height: '90%'
+    width: '100%',
+    height: '100%'
   }
 })
 
