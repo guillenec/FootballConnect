@@ -21,21 +21,26 @@ const styles = StyleSheet.create({
   },
   cartContentContainer: {
     width: '100%',
-    flex: 1,
+    height: 'auto',
     justifyContent: 'flex-start',
     alignItems: 'center',
-    backgroundColor: 'green',
     borderWidth: 2,
     borderColor: colors.color1,
     borderRadius: 4,
-    padding: 5,
-    paddingTop: 10
-
+    padding: 5
+  },
+  cartContent: {
+    paddingHorizontal: 30,
+    paddingVertical: 5,
+    backgroundColor: colors.color1,
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    borderRadius: 4
   },
   cartTextTitle: {
     fontFamily: 'NunitoBold',
     fontSize: 20,
-    color: colors.color1
+    color: colors.color4
   },
   cartTextPArrafo: {
     fontFamily: 'NunitoRegular',

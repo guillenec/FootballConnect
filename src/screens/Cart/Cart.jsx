@@ -8,13 +8,13 @@ import CartItem from './components/CartItem'
 const Cart = () => {
   const [cart, setCart] = useState(null)
   // simulare traer los datos de las reservas
-  const usuario = 3
+  const usuario = 1
 
   useEffect(() => {
     obtenerReservaCompleta(usuario)
       .then((res) => {
         setCart(res)
-        console.log('RESERVAS ->', res)
+        // console.log('RESERVAS ->', res)
       })
       .catch((err) => {
         console.error('ERROR ->', err)
@@ -33,14 +33,14 @@ const Cart = () => {
             <CartItem objeto={item} />
           )}
         />
-      </View>
-      <View style={styles.cartContentContainer}>
-        <Pressable style={styles.cartContent}>
-          <Text style={styles.cartTextTitle}>Confirmar</Text>
-          <Text style={styles.cartTextPArrafo}>Total $0.00</Text>
-        </Pressable>
+        <View style={styles.cartContentContainer}>
+          <Pressable style={styles.cartContent}>
+            <Text style={styles.cartTextTitle}>Confirmar</Text>
+            <Text style={styles.cartTextPArrafo}>Total $0.00</Text>
+          </Pressable>
 
-        <View style={styles.containerMaps} />
+          <View style={styles.containerMaps} />
+        </View>
       </View>
 
     </View>

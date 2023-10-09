@@ -108,6 +108,12 @@ const styles = StyleSheet.create({
   map: {
     width: '100%',
     height: '100%'
+  },
+  textLoading: {
+    fontFamily: 'NunitoBold',
+    fontSize: 20,
+    textTransform: 'capitalize',
+    color: colors.color1
   }
 })
 

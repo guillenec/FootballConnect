@@ -93,25 +93,25 @@ export const integrantesDelEquipo = [
 export const canchas = [
   {
     id: 1,
-    nombre: 'Cancha 1',
+    nombre: 'San Jorge',
     costoHora: 2500,
     horarios: 'Lunes a Viernes de 9:00 a 18:00',
-    direccion: 'Carlos Francisco Melo 402, B1638 Vicente López, Provincia de Buenos Aires',
+    direccion: 'Drumond 2262, Buenos Aires',
     id_local: 1
   },
   {
     id: 2,
-    nombre: 'Cancha 2',
+    nombre: 'Esquina Vélez Fútbol',
     costoHora: 3500,
     horarios: 'Lunes a Viernes de 9:00 a 18:00',
-    direccion: 'Isabel la Católica 772, C1268 ACP, Buenos Aires',
+    direccion: 'Álvarez Jonte 6305, Buenos Aires',
     id_local: 2
   },
   {
     id: 3,
-    nombre: 'Cancha 3',
+    nombre: 'Futbol 5',
     costoHora: 4500,
-    horarios: 'José A. Cabrera 3544, C1186 AAP, Buenos Aires',
+    horarios: 'Mario Bravo 1232, Buenos Aires',
     direccion: 'Dirección de la cancha 3',
     id_local: 1
   }
@@ -184,13 +184,13 @@ export const locales = [
 export const galeriasCanchas = [
   {
     id: 1,
-    id_cancha: 1,
-    imagenes: ['https://recreasport.com/wp-content/uploads/2017/04/Reynosa-Tec.jpg', 'https://lanoticiaregional.com.mx/wp-content/uploads/2020/09/CANCHAS-SECUNDARIAS-96-Y-521-1024x574.jpeg']
+    id_cancha: 2,
+    imagenes: ['https://lh5.googleusercontent.com/p/AF1QipOPsNDDYfl6UUzI0SOVAeNqXsp7C4q8haNjl811=w426-h240-k-no', 'https://lh3.googleusercontent.com/p/AF1QipO1ucnt4PiPEhcpRWWL5p6ARJN3uqmoLj7zbFgt=w960-h960-n-o-v1']
   },
   {
     id: 2,
-    id_cancha: 2,
-    imagenes: ['https://www.hoysejuega.com/uploads/Modules/ImagenesComplejos/800_600_la-canchita---futbol-5-2.jpg', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTP9TM8XWXCmrwG1L7iHQB8tLN-K32or0pkDA8go4bhaVjTFjRR5pUKZtA1Oo12YejROMA&usqp=CAUimagen4.jpg']
+    id_cancha: 1,
+    imagenes: ['https://lh5.googleusercontent.com/p/AF1QipNsbUPs19VJnUxXHsOlpj-cYa82E0MPiWECjsQh=w408-h306-k-no']
   },
   {
     id: 3,

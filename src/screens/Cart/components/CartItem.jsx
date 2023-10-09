@@ -10,6 +10,7 @@ const CartItem = ({ objeto }) => {
   // console.log('OBJETO CART ->', objeto)
   const [cordenadas, setCordenadas] = useState(null)
   console.log('CORDENADAS ->', cordenadas)
+
   useEffect(() => {
     const fetchCoordenadas = async () => {
       try {
@@ -48,31 +49,22 @@ const CartItem = ({ objeto }) => {
       </View>
 
       <View style={styles.contentMaps}>
-        {cordenadas && (
-
-          <MapView
-            style={styles.map}
-            initialRegion={{
-              latitude: cordenadas?.lat || -41.133675,
-              longitude: cordenadas?.lng || -71.301251,
-              latitudeDelta: 0.0922,
-              longitudeDelta: 0.0421
-            }}
-            showsUserLocation
-            userInterfaceStyle='dark'
-          >
-            {
-          // cordenadas && (
-
-          //   <MapView.Marker
-          //     coordinate={{ latitude: -41.133675, longitude: -71.301251 }}
-          //     title='Descripción'
-          //     description='Descripción del marcador'
-          //   />
-          // )
+        {
+        cordenadas
+          ? (
+            <MapView
+              style={styles.map}
+              initialRegion={{
+                latitude: cordenadas?.lat || -41.133675,
+                longitude: cordenadas?.lng || -71.301251,
+                latitudeDelta: 0.0922,
+                longitudeDelta: 0.0421
+              }}
+              showsUserLocation
+              userInterfaceStyle='dark'
+            />)
+          : (<Text style={styles.textLoading}>...cargando</Text>)
           }
-          </MapView>
-        )}
 
       </View>
     </View>
