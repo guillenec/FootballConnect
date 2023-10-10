@@ -4,7 +4,7 @@ import styles from './cartItem.style'
 import Ionicons from '@expo/vector-icons/Ionicons'
 // import MapView from 'react-native-maps'
 import geocodeAddress from '../Service/GeocodingService'
-import MapView from 'react-native-maps'
+import MapView, { Marker } from 'react-native-maps'
 
 const CartItem = ({ objeto }) => {
   // console.log('OBJETO CART ->', objeto)
@@ -62,7 +62,13 @@ const CartItem = ({ objeto }) => {
               }}
               showsUserLocation
               userInterfaceStyle='dark'
-            />)
+            >
+              <Marker
+                coordinate={{ latitude: cordenadas?.lat, longitude: cordenadas?.lng }}
+                title={objeto?.cancha.nombre}
+                description={objeto?.cancha.direccion}
+              />
+            </MapView>)
           : (<Text style={styles.textLoading}>...cargando</Text>)
           }
 

@@ -4,7 +4,7 @@ import { colors } from '../../../utils/colors'
 const styles = StyleSheet.create({
   containCartItem: {
     width: 400,
-    overflow: 'hidden',
+    // overflow: 'hidden',
     height: 210,
     // flex: 1,
     color: colors.color1,
@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
     gap: 2,
     borderWidth: 2,
     borderColor: colors.color1,
-    borderRadius: 4,
+    borderRadius: 5,
     padding: 2,
     shadowOffset: {
       width: 3,
@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowRadius: 5,
     elevation: 5,
-    marginTop: 10,
+    marginTop: 15,
     marginHorizontal: '.5%'
   },
   contenido: {
@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
     width: '50%',
     flex: 1,
     borderRadius: 4,
-    overflow: 'hidden',
+    // overflow: 'hidden',
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center'

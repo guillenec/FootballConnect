@@ -7,6 +7,7 @@ import CartItem from './components/CartItem'
 
 const Cart = () => {
   const [cart, setCart] = useState(null)
+  const [total, setTotal] = useState(0)
   // simulare traer los datos de las reservas
   const usuario = 1
 
@@ -14,6 +15,7 @@ const Cart = () => {
     obtenerReservaCompleta(usuario)
       .then((res) => {
         setCart(res)
+        setTotal(res.reduce((acc, curr) => acc + curr.precioFinal, 0))
         // console.log('RESERVAS ->', res)
       })
       .catch((err) => {
@@ -21,7 +23,8 @@ const Cart = () => {
       })
   }, [])
 
-  console.log('CART ->', cart)
+  console.log('total ', total)
+  // console.log('CART ->', cart)
   return (
     <View style={styles.cartContainer}>
       <Header title='🛒 Carrito' />
@@ -36,7 +39,7 @@ const Cart = () => {
         <View style={styles.cartContentContainer}>
           <Pressable style={styles.cartContent}>
             <Text style={styles.cartTextTitle}>Confirmar</Text>
-            <Text style={styles.cartTextPArrafo}>Total $0.00</Text>
+            <Text style={styles.cartTextPArrafo}>Total ${total || 0}</Text>
           </Pressable>
 
           <View style={styles.containerMaps} />

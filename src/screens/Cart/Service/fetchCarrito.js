@@ -49,8 +49,8 @@ async function obtenerReservaCompleta (idUsuario) {
 
       const horaInicio = new Date(`${reserva.fecha}T${reserva.horaInicio}`)
       const horaFin = new Date(`${reserva.fecha}T${reserva.horaFin}`)
-      const duracionReserva = (horaFin - horaInicio) / 1000 / 60 // Duración en minutos
-
+      const duracionReserva = (horaFin - horaInicio) / 1000 / 60 / 60// Duración en minutos
+      console.log('duracionReserva ->', duracionReserva)
       return {
         reserva,
         cancha,

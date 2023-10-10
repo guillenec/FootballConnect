@@ -111,8 +111,8 @@ export const canchas = [
     id: 3,
     nombre: 'Futbol 5',
     costoHora: 4500,
-    horarios: 'Mario Bravo 1232, Buenos Aires',
-    direccion: 'Dirección de la cancha 3',
+    horarios: 'Lunes a Viernes de 9:00 a 18:00',
+    direccion: 'Mario Bravo 1232, Buenos Aires',
     id_local: 1
   }
 ]

@@ -6,6 +6,7 @@ import { StyleSheet } from 'react-native'
 import { colors } from '../utils/colors'
 // import Ionicons from '@expo/vector-icons/Ionicons'
 import Ionicons from '@expo/vector-icons/Ionicons'
+import OrderNavigation from './OrderNavigation'
 
 const Tab = createBottomTabNavigator()
 
@@ -27,7 +28,7 @@ const TabsNavigator = () => {
         options={{
           headerShown: false,
           tabBarIcon: ({ focused }) => (
-            <Ionicons name='home-outline' size={23} color={focused ? colors.color1 : 'pink'} />
+            <Ionicons name='home-outline' size={23} color={focused ? colors.color1 : colors.color4} />
           )
         }}
       />
@@ -36,16 +37,17 @@ const TabsNavigator = () => {
         options={{
           headerShown: false,
           tabBarIcon: ({ focused }) => (
-            <Ionicons name='cart-outline' size={23} color={focused ? colors.color1 : 'pink'} />
+            <Ionicons name='cart-outline' size={23} color={focused ? colors.color1 : colors.color4} />
           )
         }}
       />
       <Tab.Screen
-        name='menu' component={CartNavigator}
+        name='Orders'
+        component={OrderNavigation}
         options={{
           headerShown: false,
           tabBarIcon: ({ focused }) => (
-            <Ionicons name='list' size={23} color={focused ? colors.color1 : 'pink'} />
+            <Ionicons name='list' size={23} color={focused ? colors.color1 : colors.color4} />
           )
         }}
       />
