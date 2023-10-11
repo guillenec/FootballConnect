@@ -2,6 +2,8 @@ import { NavigationContainer } from '@react-navigation/native'
 import { useFonts } from 'expo-font'
 import fonts from './src/global/fonts'
 import TabsNavigator from './src/Navigation/TabsNavigator'
+import { store } from './src/app/store'
+import { Provider } from 'react-redux'
 
 const App = () => {
   const [fontsLoaded] = useFonts(fonts)
@@ -11,9 +13,11 @@ const App = () => {
   }
 
   return (
-    <NavigationContainer>
-      <TabsNavigator />
-    </NavigationContainer>
+    <Provider store={store}>
+      <NavigationContainer>
+        <TabsNavigator />
+      </NavigationContainer>
+    </Provider>
 
   )
 }

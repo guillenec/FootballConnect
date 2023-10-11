@@ -11,6 +11,7 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   list: {
+    marginTop: 20,
     width: '100%',
     flex: 1,
     flexDirection: 'column',
