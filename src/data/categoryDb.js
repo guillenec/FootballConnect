@@ -90,10 +90,25 @@ export const integrantesDelEquipo = [
   }
 ]
 
+export const tipoCanchas = [
+  {
+    id: 1,
+    nombre: 'Fútbol 5'
+  },
+  {
+    id: 2,
+    nombre: 'Fútbol 7'
+  }, {
+    id: 3,
+    nombre: 'Fútbol 11'
+  }
+
+]
 export const canchas = [
   {
     id: 1,
     nombre: 'San Jorge',
+    id_tipo: 2,
     costoHora: 2500,
     horarios: 'Lunes a Viernes de 9:00 a 18:00',
     direccion: 'Drumond 2262, Buenos Aires',
@@ -102,6 +117,7 @@ export const canchas = [
   {
     id: 2,
     nombre: 'Esquina Vélez Fútbol',
+    id_tipo: 3,
     costoHora: 3500,
     horarios: 'Lunes a Viernes de 9:00 a 18:00',
     direccion: 'Álvarez Jonte 6305, Buenos Aires',
@@ -109,11 +125,84 @@ export const canchas = [
   },
   {
     id: 3,
-    nombre: 'Futbol 5',
+    nombre: 1,
+    id_tipo: 1,
     costoHora: 4500,
     horarios: 'Lunes a Viernes de 9:00 a 18:00',
     direccion: 'Mario Bravo 1232, Buenos Aires',
     id_local: 1
+  },
+  {
+    id: 4,
+    nombre: 'Canchas del Barrio',
+    id_tipo: 2,
+    costoHora: 2800,
+    horarios: 'Lunes a Viernes de 10:00 a 19:00',
+    direccion: 'Av. Rivadavia 4567, Buenos Aires',
+    id_local: 3
+  },
+  {
+    id: 5,
+    nombre: 'Fútbol Total',
+    id_tipo: 3,
+    costoHora: 3200,
+    horarios: 'Lunes a Viernes de 8:00 a 17:00',
+    direccion: 'Av. Corrientes 789, Buenos Aires',
+    id_local: 2
+  },
+  {
+    id: 6,
+    nombre: 'Fútbol Express',
+    id_tipo: 1,
+    costoHora: 4000,
+    horarios: 'Lunes a Viernes de 10:00 a 19:00',
+    direccion: 'Carlos Pellegrini 234, Buenos Aires',
+    id_local: 3
+  },
+  {
+    id: 7,
+    nombre: 'Bariloche Fútbol Club',
+    id_tipo: 3,
+    costoHora: 2800,
+    horarios: 'Lunes a Viernes de 10:00 a 19:00',
+    direccion: 'Av. Bustillo 789, Bariloche',
+    id_local: 4
+  },
+  {
+    id: 8,
+    nombre: 'Montaña Fútbol',
+    id_tipo: 2,
+    costoHora: 3200,
+    horarios: 'Lunes a Viernes de 8:00 a 17:00',
+    direccion: 'Calle Moreno 123, Bariloche',
+    id_local: 5
+  },
+  {
+    id: 9,
+    nombre: 'Lago Fútbol Center',
+    id_tipo: 1,
+    costoHora: 4200,
+    horarios: 'Lunes a Viernes de 9:00 a 18:00',
+    direccion: 'Av. San Martín 456, Bariloche',
+    id_local: 4
+  },
+  {
+    id: 10,
+    nombre: 'Cerro Fútbol Park',
+    id_tipo: 2,
+    costoHora: 3100,
+    horarios: 'Lunes a Viernes de 10:00 a 19:00',
+    direccion: 'Calle Cerro Catedral 789, Bariloche',
+    id_local: 5
+  },
+  {
+    id: 11,
+    nombre: 'Snow Fútbol Center',
+    id_tipo: 1,
+    costoHora: 4500,
+    horarios: 'Lunes a Viernes de 9:00 a 18:00',
+    direccion: 'Calle Nevisca 234, Bariloche',
+    id_local: 4
   }
 ]
 
@@ -196,6 +285,51 @@ export const galeriasCanchas = [
     id: 3,
     id_cancha: 3,
     imagenes: ['https://muchosnegociosrentables.com/wp-content/uploads/2015/08/campo-de-f%C3%BAtbol-5-o-7.jpg']
+  },
+  {
+    id: 4,
+    id_cancha: 4,
+    imagenes: ['https://www.radiobicentenario.com.ar/radiobicentenario/fotos/cache/notas/2020/07/06/926x0_14801_20200706085021.jpg']
+  },
+  {
+    id: 5,
+    id_cancha: 5,
+    imagenes: ['https://pxb.cdn.elchubut.com.ar/chubut/072020/1595275328858.webp?cw=1315&ch=749&extw=jpg']
+  },
+  {
+    id: 6,
+    id_cancha: 6,
+    imagenes: ['https://www.hoysejuega.com/uploads/Modules/ImagenesComplejos/800_600_la-cancha-f%C3%BAtbol-5-y-6.jpg']
+  },
+  {
+    id: 7,
+    id_cancha: 7,
+    imagenes: ['https://www.elclasicofutbol5.com/wp-content/uploads/2014/03/DSC02870-1024x683.jpg']
+  },
+  {
+    id: 8,
+    id_cancha: 8,
+    imagenes: ['https://970universal.com/wp-content/uploads/2022/03/futbol-5-355708-175940.jpg']
+  },
+  {
+    id: 9,
+    id_cancha: 9,
+    imagenes: ['https://diarioresumen.com.ar/static/old/uploads/2020/09/Hagar-futbol-5.jpg']
+  },
+  {
+    id: 10,
+    id_cancha: 10,
+    imagenes: ['https://4.bp.blogspot.com/-EYhsTcJkSQ4/VTKz6SKNyDI/AAAAAAAAN2M/io9_DSGYlco/s1600/canchas.jpg']
+  },
+  {
+    id: 11,
+    id_cancha: 11,
+    imagenes: ['https://970universal.com/wp-content/uploads/2022/03/futbol-5-355708-175940.jpg']
+  },
+  {
+    id: 12,
+    id_cancha: 12,
+    imagenes: ['https://www.hoysejuega.com/uploads/Modules/ImagenesComplejos/800_600_estalla-futbol-5.jpg']
   }
 ]
 

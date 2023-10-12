@@ -12,11 +12,11 @@ const ProductItem = ({ item, navigation }) => {
         resizeMode='cover'
         resizeMethod='resize'
         style={styles.cardImage}
-        source={{ uri: item.imagen }}
+        source={{ uri: item?.galeria?.imagenes }}
       />
       <View style={styles.contentCardText}>
-        <Text style={styles.cardTextTitle}>{item.nombre || 'cargando...'}</Text>
-        <Text style={styles.cardText}>{item.ciudad || 'cargando...'}</Text>
+        <Text style={styles.cardTextTitle}>{item.cancha.nombre || 'cargando...'}</Text>
+        <Text style={styles.cardText}>{item.cancha.direccion || 'cargando...'}</Text>
       </View>
 
     </Pressable>

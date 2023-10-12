@@ -1,11 +1,12 @@
 import { FlatList, Pressable, Text, View } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import styles from './ItemListCategory.style'
-import { equipos } from '../../data/categoryDb'
+// import { canchas } from '../../data/categoryDb'
 import Header from '../../components/Header/Header'
 import SearchInput from '../../components/SearchInput/SearchInput'
 import ProductItem from './components/ProductItem/ProductItem'
 import Ionicons from '@expo/vector-icons/Ionicons'
+import obtenerCanchas from './services/fetchCancha'
 
 const ItemListCategory = ({ navigation, route }) => {
   const [allProducts, setAllProducts] = useState([])
@@ -16,36 +17,40 @@ const ItemListCategory = ({ navigation, route }) => {
   const { category } = route.params
   // console.log('CATEGORIA -> ', category)
 
-  const fetchProducts = () => {
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        resolve(equipos)
-      }, 1000)
-    })
-  }
+  // const fetchProducts = () => {
+  //   return new Promise((resolve, reject) => {
+  //     setTimeout(() => {
+  //       resolve(canchas)
+  //     }, 1000)
+  //   })
+  // }
 
-  async function getProducts () {
-    try {
-      setLoader(true)
-      const data = await fetchProducts()
-      setAllProducts(data)
-    } catch (error) {
-      console.log('error al traer los equipos', error)
-    } finally {
-      setTimeout(() => {
-        setLoader(false)
-      }, 1000)
-    }
-  }
-  // useEffect(() => {
-  //   getProducts()
-  // }, [allProducts])
+  // async function getProducts () {
+  //   try {
+  //     setLoader(true)
+  //     const data = await fetchProducts()
+  //     setAllProducts(data)
+  //   } catch (error) {
+  //     console.log('error al traer los equipos', error)
+  //   } finally {
+  //     setTimeout(() => {
+  //       setLoader(false)
+  //     }, 1000)
+  //   }
+  // }
 
   useEffect(() => {
-    getProducts()
+    // getProducts()
+    setLoader(true)
+    obtenerCanchas()
+      .then((data) => {
+        console.log('data ->', data)
+        setAllProducts(data)
+        setLoader(true)
+      })
     // console.log('todos ->', allProducts)
     if (category && keyword === '') {
-      const filterCategory = allProducts?.filter(item => item.categoria_id === category)
+      const filterCategory = allProducts?.filter(item => item.id_tipo === category)
       // console.log('filterCategory -->', filterCategory)
 
       setArrProduct(filterCategory)
@@ -78,7 +83,7 @@ const ItemListCategory = ({ navigation, route }) => {
               <FlatList
                 data={arrProduct}
                 numColumns={2}
-                keyExtractor={product => product._id}
+                keyExtractor={product => product.id}
                 columnWrapperStyle={styles.weapperStyle}
                 renderItem={({ item }) => (
                   <ProductItem item={item} navigation={navigation} />

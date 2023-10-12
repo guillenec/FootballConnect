@@ -1,6 +1,6 @@
 import { FlatList } from 'react-native'
 import React from 'react'
-import { categorias } from '../../../../data/categoryDb'
+import { tipoCanchas } from '../../../../data/categoryDb'
 import CategoryItem from '../CategoryItem/CategoryItem'
 import styles from '../CategoryItem/CategoryItem.style'
 
@@ -10,8 +10,8 @@ const Categorias = ({ navigation }) => {
   return (
     <FlatList
       style={styles.containerCtegorias}
-      data={categorias}
-      keyExtractor={category => category._id}
+      data={tipoCanchas}
+      keyExtractor={tipoCanchas => tipoCanchas.id}
       renderItem={({ item }) => (
         <CategoryItem
           item={item}

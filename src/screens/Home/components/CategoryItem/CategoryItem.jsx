@@ -7,7 +7,7 @@ const CategoryItem = ({ item, navigation }) => {
   // console.log('Category ITEM ->', item)
   return (
     <Pressable
-      onPress={() => navigation.navigate('ItemListCategory', { category: item._id })}
+      onPress={() => navigation.navigate('ItemListCategory', { category: item.id })}
       style={styles.CategoryItem}
     >
       <Card newStyle={styles.contentCard}>
