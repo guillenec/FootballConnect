@@ -1,70 +1,47 @@
+// import { FlatList, Pressable, Text, View } from 'react-native'
 import { FlatList, Pressable, Text, View } from 'react-native'
-import React, { useEffect, useState } from 'react'
 import styles from './ItemListCategory.style'
-// import { canchas } from '../../data/categoryDb'
 import Header from '../../components/Header/Header'
+import { useDispatch, useSelector } from 'react-redux'
+import { useEffect, useState } from 'react'
+import { fetchCanchasGeneral } from '../../features/canchasSlice/canchasSlice'
 import SearchInput from '../../components/SearchInput/SearchInput'
 import ProductItem from './components/ProductItem/ProductItem'
 import Ionicons from '@expo/vector-icons/Ionicons'
-import obtenerCanchas from './services/fetchCancha'
 
 const ItemListCategory = ({ navigation, route }) => {
-  const [allProducts, setAllProducts] = useState([])
-  const [arrProduct, setArrProduct] = useState([])
+  const [products, setProducs] = useState([])
   const [keyword, setKeyword] = useState('')
-  const [loader, setLoader] = useState(false)
+  const dispatch = useDispatch()
 
-  const { category } = route.params
-  // console.log('CATEGORIA -> ', category)
+  const canchas = useSelector((state) => state?.canchas?.canchas)
+  const loading = useSelector((state) => state.canchas.loading)
+  // const error = useSelector((state) => state.cancha.error)
 
-  // const fetchProducts = () => {
-  //   return new Promise((resolve, reject) => {
-  //     setTimeout(() => {
-  //       resolve(canchas)
-  //     }, 1000)
-  //   })
-  // }
-
-  // async function getProducts () {
-  //   try {
-  //     setLoader(true)
-  //     const data = await fetchProducts()
-  //     setAllProducts(data)
-  //   } catch (error) {
-  //     console.log('error al traer los equipos', error)
-  //   } finally {
-  //     setTimeout(() => {
-  //       setLoader(false)
-  //     }, 1000)
-  //   }
-  // }
+  const { tipo } = route.params
+  console.log('tipo ->', tipo)
+  console.log('keyword ->', keyword)
 
   useEffect(() => {
-    // getProducts()
-    setLoader(true)
-    obtenerCanchas()
-      .then((data) => {
-        console.log('data ->', data)
-        setAllProducts(data)
-        setLoader(true)
-      })
-    // console.log('todos ->', allProducts)
-    if (category && keyword === '') {
-      const filterCategory = allProducts?.filter(item => item.id_tipo === category)
-      // console.log('filterCategory -->', filterCategory)
+    dispatch(fetchCanchasGeneral())
+  }, [dispatch])
 
-      setArrProduct(filterCategory)
+  useEffect(() => {
+    if (tipo && keyword === '') {
+      const response = canchas.filter((cancha) => cancha.id_tipo === tipo)
+      setProducs(response)
     } else if (keyword !== '') {
-      const filterKeyword = allProducts?.filter(item => item.nombre.toLowerCase().includes(keyword.toLowerCase()))
-      // console.log('filterCategory -->', filterKeyword)
-
-      setArrProduct(filterKeyword)
+      const response = canchas?.find((cancha) =>
+        cancha.nombre?.toLowerCase().includes(keyword?.toLowerCase())
+      )
+      setProducs(response)
+    } else {
+      setProducs(canchas)
     }
-  }, [allProducts, category, keyword])
+  }, [dispatch, keyword, tipo])
 
-  // const setProductDetailId = (id) => {
-  //   console.log('id ->', id)
-  // }
+  console.log('canchas ->', canchas)
+  console.log('products ->', products)
 
   return (
     <View style={styles.containerProducts}>
@@ -72,24 +49,22 @@ const ItemListCategory = ({ navigation, route }) => {
 
       <SearchInput onSearch={setKeyword} />
       {
-      loader && allProducts.length > 0
+      loading
         ? (
           <Text style={styles.loading}>Cargando...
           </Text>
           )
-        : arrProduct?.length > 0
+        : products.length > 0
           ? (
             <View style={styles.listContainer}>
               <FlatList
-                data={arrProduct}
+                data={products}
                 numColumns={2}
-                keyExtractor={product => product.id}
+                keyExtractor={product => product?.id}
                 columnWrapperStyle={styles.weapperStyle}
                 renderItem={({ item }) => (
                   <ProductItem item={item} navigation={navigation} />
-                  // <View>
-                  //   <Text>{item.nombre}</Text>
-                  // </View>
+
                 )}
               />
             </View>

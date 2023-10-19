@@ -125,7 +125,7 @@ export const canchas = [
   },
   {
     id: 3,
-    nombre: 1,
+    nombre: 'fulbolistt',
     id_tipo: 1,
     costoHora: 4500,
     horarios: 'Lunes a Viernes de 9:00 a 18:00',

@@ -4,10 +4,11 @@ import styles from './CategoryItem.style'
 import Card from '../../../../components/Card/Card'
 
 const CategoryItem = ({ item, navigation }) => {
-  // console.log('Category ITEM ->', item)
+  console.log('Category ITEM ->', item.id)
   return (
+
     <Pressable
-      onPress={() => navigation.navigate('ItemListCategory', { category: item.id })}
+      onPress={() => navigation.navigate('ItemListCategory', { tipo: item.id })}
       style={styles.CategoryItem}
     >
       <Card newStyle={styles.contentCard}>

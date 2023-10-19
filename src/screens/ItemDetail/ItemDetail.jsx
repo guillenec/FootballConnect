@@ -6,7 +6,7 @@ import styles from './ItemDetail.style'
 
 const ItemDetail = ({ navigation, route }) => {
   const { product } = route.params
-  // console.log('Productos ->', product)
+  console.log(' DETALLE ->', product)
 
   return (
     <View style={styles.containItemDetail}>
@@ -17,14 +17,14 @@ const ItemDetail = ({ navigation, route }) => {
             resizeMode='cover'
             resizeMethod='resize'
             style={styles.cardImage}
-            source={{ uri: product?.imagen }}
+            source={{ uri: product?.galeria[0].imagenes[0] }}
           />
           <View style={styles.headCard}>
-            <Text style={styles.identify}>#{product._id || 'cargando...'}</Text>
-            <Text style={styles.name}>{product.nombre || 'cargando...'}</Text>
+            <Text style={styles.identify}>#{product?.id || 'cargando...'}</Text>
+            <Text style={styles.name}>{product?.nombre || 'cargando...'}</Text>
           </View>
-          <Text style={styles.cardText}>Region: {product.category || 'cargando...'}</Text>
-          <Text style={styles.cardText}>Ciudad: {product.ciudad || 'cargando...'}</Text>
+          <Text style={styles.cardText}>Region: {product?.id_tipo || 'cargando...'}</Text>
+          <Text style={styles.cardText}>Ciudad: {product?.direccion || 'cargando...'}</Text>
         </View>
       </View>
       <Pressable

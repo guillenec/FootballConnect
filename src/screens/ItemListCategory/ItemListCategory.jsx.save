@@ -1,0 +1,96 @@
+import { FlatList, Pressable, Text, View } from 'react-native'
+import React, { useEffect, useState } from 'react'
+import styles from './ItemListCategory.style'
+// import { canchas } from '../../data/categoryDb'
+import Header from '../../components/Header/Header' import 
+SearchInput from '../../components/SearchInput/SearchInput' 
+import ProductItem from './components/ProductItem/ProductItem' 
+import Ionicons from '@expo/vector-icons/Ionicons' import 
+obtenerCanchas from './services/fetchCancha'
+c
+const ItemListCategory = ({ navigation, route }) => {
+  const [allProducts, setAllProducts] = useState([])
+  const [arrProduct, setArrProduct] = useState([])
+  const [keyword, setKeyword] = useState('')
+  const [loader, setLoader] = useState(false)
+
+  const { tipo } = route.params
+
+  const seteaArr = (val) => {
+    setAllProducts(val)
+  }
+
+  useEffect(() => {
+    setLoader(true)
+    obtenerCanchas(seteaArr)
+      .then((data) => {
+        console.log('data ITEM LIST->', data)
+        // setAllProducts(data)
+      })
+
+    if (tipo && keyword === '') {
+      const filterCategory = allProducts?.filter(item => item.cancha.id_tipo === tipo)
+      console.log('filter Category -->', filterCategory)
+
+      setArrProduct(filterCategory)
+      setLoader(false)
+    } else if (keyword !== '') {
+      const filterKeyword = allProducts?.filter(item => item.cancha.nombre.toLowerCase().includes(keyword.toLowerCase()))
+      console.log('filter keywor -->', filterKeyword)
+
+      setArrProduct(filterKeyword)
+      setLoader(false)
+    }
+  }, [tipo, keyword])
+
+  // const setProductDetailId = (id) => {
+  //   console.log('id ->', id)
+  // }
+  console.log('ARR PRODUCT ->', arrProduct)
+  return (
+    <View style={styles.containerProducts}>
+      <Header title='🏟️ Lista equipos' />
+
+      <SearchInput onSearch={setKeyword} />
+      {
+      loader && allProducts.length > 0
+        ? (
+          <Text style={styles.loading}>Cargando...
+          </Text>
+          )
+        : arrProduct?.length > 0
+          ? (
+            <View style={styles.listContainer}>
+              <FlatList
+                data={arrProduct}
+                numColumns={2}
+                keyExtractor={product => product?.cancha?.id}
+                columnWrapperStyle={styles.weapperStyle}
+                renderItem={({ item }) => (
+                  <ProductItem item={item} navigation={navigation} />
+                  // <View>
+                  //   <Text>{item.nombre}</Text>
+                  // </View>
+                )}
+              />
+            </View>
+            )
+          : (
+            <Text style={styles.error}>No se encontraron coincidencias...
+            </Text>
+            )
+      }
+      <Pressable
+        onPress={() => navigation.navigate('Home')}
+        style={styles.botonBack}
+      >
+        <Ionicons
+          name='arrow-back'
+          size={25} color='white'
+        />
+      </Pressable>
+    </View>
+  )
+}
+
+export default ItemListCategory

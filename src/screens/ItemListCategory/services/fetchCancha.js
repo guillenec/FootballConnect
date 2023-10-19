@@ -15,7 +15,7 @@ export const fetchGaleriaCanchaByid = async (id) => {
   })
 }
 
-async function obtenerCanchas () {
+async function obtenerCanchas (func) {
   try {
     const canchas = await fetchCanchas()
 
@@ -35,6 +35,7 @@ async function obtenerCanchas () {
 
     // Esperar a que todas las promesas se resuelvan
     const resCompletas = await Promise.all(promises)
+    func(resCompletas)
 
     console.log('RESERVA COMPLETA ->', resCompletas)
 

@@ -1,7 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit'
-import counterReducer from '../features/counter/counterSlice'
+import canchasReducer from '../features/canchasSlice/canchasSlice'
+
 export const store = configureStore({
   reducer: {
-    counter: counterReducer
+    canchas: canchasReducer
   }
 })
